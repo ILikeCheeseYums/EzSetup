@@ -59,9 +59,9 @@ function renderCategoryFilters() {
   };
   container.appendChild(allBtn);
 
-  // Each category filter button
+  // Each category filter button (counts all items with this category tag)
   CATEGORIES.forEach(category => {
-    const categoryCount = ITEMS.filter(item => item.category === category.id).length;
+    const categoryCount = ITEMS.filter(item => item.categories && item.categories.includes(category.id)).length;
     const isActive = appState.activeCategory === category.id;
     const btn = document.createElement('button');
     btn.type = 'button';
@@ -70,7 +70,7 @@ function renderCategoryFilters() {
         ? 'bg-zinc-100 text-zinc-950 font-semibold shadow-sm'
         : 'bg-zinc-900/80 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700'
     }`;
-    btn.textContent = `${category.name} (${categoryCount})`;
+    btn.textContent = `${category.shortName} (${categoryCount})`;
     btn.onclick = function() {
       setCategoryFilter(category.id);
     };
@@ -95,7 +95,14 @@ function renderCategoryFilters() {
 function setCategoryFilter(categoryId) {
   appState.activeCategory = categoryId;
   renderCategoryFilters();
+  renderCategories();
   filterCards();
+}
+
+// Click category tag on card
+function onCategoryTagClick(event, categoryId) {
+  event.stopPropagation();
+  setCategoryFilter(categoryId);
 }
 
 // Render Categories and Cards
@@ -105,8 +112,17 @@ function renderCategories() {
 
   container.innerHTML = '';
 
-  CATEGORIES.forEach(category => {
-    const categoryItems = ITEMS.filter(item => item.category === category.id);
+  const categoriesToRender = appState.activeCategory === 'all'
+    ? CATEGORIES
+    : CATEGORIES.filter(c => c.id === appState.activeCategory);
+
+  categoriesToRender.forEach(category => {
+    // When "all", group by primaryCategory to avoid duplicate cards.
+    // When a specific category is active, show ALL items having that category tag!
+    const categoryItems = appState.activeCategory === 'all'
+      ? ITEMS.filter(item => item.primaryCategory === category.id)
+      : ITEMS.filter(item => item.categories && item.categories.includes(category.id));
+
     if (categoryItems.length === 0) return;
 
     const section = document.createElement('section');
@@ -139,7 +155,7 @@ function renderCategories() {
   });
 }
 
-// Create an Item Card Element with Authentic SVG Logo & Multiple Tags
+// Create an Item Card Element with Authentic SVG Logo & Category Tags
 function createItemCard(item) {
   const isSelected = appState.selected.has(item.id);
   const card = document.createElement('div');
@@ -150,20 +166,38 @@ function createItemCard(item) {
       : 'bg-zinc-900/40 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850/50'
   }`;
 
-  const tags = item.tags || [item.type.toUpperCase()];
-  const tagsString = tags.join(' ').toLowerCase();
+  const categoryTags = (item.categories || [item.primaryCategory]).map(catId => {
+    const cat = getCategoryById(catId);
+    return cat ? cat.shortName : catId;
+  });
+
+  const searchTagString = categoryTags.join(' ').toLowerCase();
 
   card.setAttribute('data-name', item.name.toLowerCase());
   card.setAttribute('data-desc', item.desc.toLowerCase());
   card.setAttribute('data-type', item.type);
-  card.setAttribute('data-tags', tagsString);
+  card.setAttribute('data-tags', searchTagString);
 
-  // Render multiple tags
-  const tagsHtml = tags.map(tag => `
-    <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border font-mono bg-zinc-900 text-zinc-400 border-zinc-800 shrink-0">
-      ${tag}
-    </span>
-  `).join('');
+  // Render clickable category tags
+  const tagsHtml = (item.categories || [item.primaryCategory]).map(catId => {
+    const cat = getCategoryById(catId);
+    if (!cat) return '';
+    const isThisActive = appState.activeCategory === catId;
+    return `
+      <button
+        type="button"
+        title="Filter by ${cat.name}"
+        onclick="onCategoryTagClick(event, '${catId}')"
+        class="text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded border transition-colors ${
+          isThisActive
+            ? 'bg-zinc-200 text-zinc-950 font-semibold border-zinc-200'
+            : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-600'
+        }"
+      >
+        ${cat.shortName}
+      </button>
+    `;
+  }).join('');
 
   card.innerHTML = `
     <div>
@@ -257,21 +291,12 @@ function clearAll() {
   updateLivePreviewIfOpen();
 }
 
-// Filter Cards based on activeCategory and search query
+// Filter Cards based on search query
 function filterCards() {
   const query = appState.searchQuery;
-  const activeCategory = appState.activeCategory;
   const sections = document.querySelectorAll('.category-section');
 
   sections.forEach(section => {
-    const sectionCatId = section.getAttribute('data-category-id');
-    const categoryMatches = (activeCategory === 'all' || activeCategory === sectionCatId);
-
-    if (!categoryMatches) {
-      section.style.display = 'none';
-      return;
-    }
-
     let visibleCardsCount = 0;
     const cards = section.querySelectorAll('.item-card');
     cards.forEach(card => {
@@ -345,18 +370,18 @@ function renderPreviewContent() {
   if (appState.previewTab === 'brewfile') {
     codeEl.textContent = generateBrewfile(appState.selected);
     if (tabBrewfile) {
-      tabBrewfile.className = 'px-3 py-1.5 text-xs font-medium text-white border-b-2 border-zinc-200';
+      tabBrewfile.className = 'px-3 py-1.5 text-xs font-mono font-medium text-white border-b-2 border-zinc-200';
     }
     if (tabRunScript) {
-      tabRunScript.className = 'px-3 py-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
+      tabRunScript.className = 'px-3 py-1.5 text-xs font-mono font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
     }
   } else {
     codeEl.textContent = generateRunScript(appState.selected);
     if (tabBrewfile) {
-      tabBrewfile.className = 'px-3 py-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
+      tabBrewfile.className = 'px-3 py-1.5 text-xs font-mono font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
     }
     if (tabRunScript) {
-      tabRunScript.className = 'px-3 py-1.5 text-xs font-medium text-white border-b-2 border-zinc-200';
+      tabRunScript.className = 'px-3 py-1.5 text-xs font-mono font-medium text-white border-b-2 border-zinc-200';
     }
   }
 }
