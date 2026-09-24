@@ -7,7 +7,8 @@ const CATEGORIES = [
   { id: 'cli', name: 'Modern CLI Utils', shortName: 'CLI', iconKey: 'category-cli' },
   { id: 'ai', name: 'AI Agents & LLMs', shortName: 'AI Agents', iconKey: 'category-ai' },
   { id: 'containers', name: 'Containers & Databases', shortName: 'Containers', iconKey: 'category-containers' },
-  { id: 'apps', name: 'Productivity & Apps', shortName: 'Apps', iconKey: 'category-apps' },
+  { id: 'browsers', name: 'Web Browsers', shortName: 'Browsers', iconKey: 'category-browsers' },
+  { id: 'productivity', name: 'Productivity & Utilities', shortName: 'Productivity', iconKey: 'category-productivity' },
   { id: 'tweaks', name: 'macOS Defaults', shortName: 'macOS', iconKey: 'category-tweaks' }
 ];
 
@@ -17,12 +18,14 @@ function getCategoryById(catId) {
 }
 
 const ITEMS = [
-  // Code Editors
+  // ==========================================
+  // Code Editors & IDEs
+  // ==========================================
   {
     id: 'vscode',
     name: 'Visual Studio Code',
     primaryCategory: 'editors',
-    categories: ['editors', 'apps'],
+    categories: ['editors'],
     desc: "Microsoft's popular extensible code editor with huge plugin ecosystem",
     type: 'cask',
     brewPackage: 'visual-studio-code'
@@ -31,7 +34,7 @@ const ITEMS = [
     id: 'cursor',
     name: 'Cursor',
     primaryCategory: 'editors',
-    categories: ['editors', 'apps', 'ai'],
+    categories: ['editors', 'ai'],
     desc: 'AI-first code editor fork of VS Code with smart completions & agent mode',
     type: 'cask',
     brewPackage: 'cursor'
@@ -40,7 +43,7 @@ const ITEMS = [
     id: 'zed',
     name: 'Zed',
     primaryCategory: 'editors',
-    categories: ['editors', 'apps'],
+    categories: ['editors'],
     desc: 'High-performance, multiplayer code editor written in Rust with GPU rendering',
     type: 'cask',
     brewPackage: 'zed'
@@ -58,13 +61,33 @@ const ITEMS = [
     id: 'jetbrains-toolbox',
     name: 'JetBrains Toolbox',
     primaryCategory: 'editors',
-    categories: ['editors', 'apps'],
+    categories: ['editors', 'productivity'],
     desc: 'Launcher and updater for IntelliJ, WebStorm, PyCharm, and Android Studio',
     type: 'cask',
     brewPackage: 'jetbrains-toolbox'
   },
+  {
+    id: 'sublime-text',
+    name: 'Sublime Text',
+    primaryCategory: 'editors',
+    categories: ['editors'],
+    desc: 'Sophisticated text editor for code, markup, and prose with lightning speed',
+    type: 'cask',
+    brewPackage: 'sublime-text'
+  },
+  {
+    id: 'helix',
+    name: 'Helix Editor',
+    primaryCategory: 'editors',
+    categories: ['editors', 'cli'],
+    desc: 'Post-modern modal text editor built in Rust with built-in Tree-sitter & LSP',
+    type: 'brew',
+    brewPackage: 'helix'
+  },
 
+  // ==========================================
   // Languages & Runtimes
+  // ==========================================
   {
     id: 'fnm',
     name: 'fnm (Fast Node Manager)',
@@ -120,12 +143,14 @@ const ITEMS = [
     brewPackage: 'go'
   },
 
+  // ==========================================
   // Terminals & Shell
+  // ==========================================
   {
     id: 'ghostty',
     name: 'Ghostty',
     primaryCategory: 'terminals',
-    categories: ['terminals', 'apps'],
+    categories: ['terminals'],
     desc: 'Fast, native, GPU-accelerated terminal emulator designed by Mitchell Hashimoto',
     type: 'cask',
     brewPackage: 'ghostty'
@@ -134,7 +159,7 @@ const ITEMS = [
     id: 'iterm2',
     name: 'iTerm2',
     primaryCategory: 'terminals',
-    categories: ['terminals', 'apps'],
+    categories: ['terminals'],
     desc: 'Battle-tested macOS terminal replacement with split panes and search',
     type: 'cask',
     brewPackage: 'iterm2'
@@ -143,7 +168,7 @@ const ITEMS = [
     id: 'warp',
     name: 'Warp Terminal',
     primaryCategory: 'terminals',
-    categories: ['terminals', 'apps', 'ai'],
+    categories: ['terminals', 'ai'],
     desc: 'Modern Rust-based terminal with IDE-style block commands and AI assist',
     type: 'cask',
     brewPackage: 'warp'
@@ -152,10 +177,19 @@ const ITEMS = [
     id: 'alacritty',
     name: 'Alacritty',
     primaryCategory: 'terminals',
-    categories: ['terminals', 'apps'],
+    categories: ['terminals'],
     desc: 'Cross-platform, GPU-accelerated minimalist terminal emulator',
     type: 'cask',
     brewPackage: 'alacritty'
+  },
+  {
+    id: 'wezterm',
+    name: 'WezTerm',
+    primaryCategory: 'terminals',
+    categories: ['terminals'],
+    desc: 'GPU-accelerated cross-platform terminal emulator & multiplexer in Rust',
+    type: 'cask',
+    brewPackage: 'wezterm'
   },
   {
     id: 'starship',
@@ -166,8 +200,28 @@ const ITEMS = [
     type: 'brew',
     brewPackage: 'starship'
   },
+  {
+    id: 'fish',
+    name: 'Fish Shell',
+    primaryCategory: 'terminals',
+    categories: ['terminals', 'cli'],
+    desc: 'Smart and user-friendly commandline shell with autosuggestions out of the box',
+    type: 'brew',
+    brewPackage: 'fish'
+  },
 
+  // ==========================================
   // Modern CLI Utils
+  // ==========================================
+  {
+    id: 'lazygit',
+    name: 'lazygit',
+    primaryCategory: 'cli',
+    categories: ['cli'],
+    desc: 'Simple terminal UI for git commands that makes branch & merge workflows effortless',
+    type: 'brew',
+    brewPackage: 'lazygit'
+  },
   {
     id: 'bat',
     name: 'bat',
@@ -214,6 +268,24 @@ const ITEMS = [
     brewPackage: 'ripgrep'
   },
   {
+    id: 'fd',
+    name: 'fd',
+    primaryCategory: 'cli',
+    categories: ['cli'],
+    desc: 'Simple, fast and user-friendly alternative to the find command',
+    type: 'brew',
+    brewPackage: 'fd'
+  },
+  {
+    id: 'yazi',
+    name: 'yazi',
+    primaryCategory: 'cli',
+    categories: ['cli'],
+    desc: 'Blazingly fast terminal file manager written in Rust with async I/O',
+    type: 'brew',
+    brewPackage: 'yazi'
+  },
+  {
     id: 'jq',
     name: 'jq',
     primaryCategory: 'cli',
@@ -241,7 +313,63 @@ const ITEMS = [
     brewPackage: 'btop'
   },
 
+  // ==========================================
   // AI Agents & LLMs
+  // ==========================================
+  {
+    id: 'agy',
+    name: 'Antigravity CLI (agy)',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: "Google DeepMind's advanced agentic AI coding assistant & terminal interface",
+    type: 'cask',
+    brewPackage: 'antigravity-cli'
+  },
+  {
+    id: 'claude-code',
+    name: 'Claude Code',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: "Anthropic's official terminal-based agentic AI coding assistant",
+    type: 'cask',
+    brewPackage: 'claude-code'
+  },
+  {
+    id: 'claude',
+    name: 'Claude Desktop',
+    primaryCategory: 'ai',
+    categories: ['ai', 'productivity'],
+    desc: "Anthropic's official Claude AI desktop application for macOS",
+    type: 'cask',
+    brewPackage: 'claude'
+  },
+  {
+    id: 'chatgpt',
+    name: 'ChatGPT Desktop',
+    primaryCategory: 'ai',
+    categories: ['ai', 'productivity'],
+    desc: 'Official OpenAI ChatGPT desktop application with macOS system shortcut integration',
+    type: 'cask',
+    brewPackage: 'chatgpt'
+  },
+  {
+    id: 'hermes-agent',
+    name: 'Hermes Agent',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: "Nous Research's autonomous self-improving agent loop with persistent memory",
+    type: 'brew',
+    brewPackage: 'hermes-agent'
+  },
+  {
+    id: 'openclaw',
+    name: 'OpenClaw',
+    primaryCategory: 'ai',
+    categories: ['ai', 'productivity'],
+    desc: 'Self-hosted autonomous AI agent framework and developer automation gateway',
+    type: 'cask',
+    brewPackage: 'openclaw'
+  },
   {
     id: 'ollama',
     name: 'Ollama',
@@ -264,7 +392,7 @@ const ITEMS = [
     id: 'lm-studio',
     name: 'LM Studio',
     primaryCategory: 'ai',
-    categories: ['ai', 'apps'],
+    categories: ['ai', 'productivity'],
     desc: 'Discover, download, and experiment with local LLMs on your Mac via a native GUI',
     type: 'cask',
     brewPackage: 'lm-studio'
@@ -273,72 +401,20 @@ const ITEMS = [
     id: 'jan',
     name: 'Jan',
     primaryCategory: 'ai',
-    categories: ['ai', 'apps'],
+    categories: ['ai', 'productivity'],
     desc: 'Open-source desktop AI assistant and local LLM runner working 100% offline',
     type: 'cask',
     brewPackage: 'jan'
   },
-  {
-    id: 'chatgpt',
-    name: 'ChatGPT Desktop',
-    primaryCategory: 'ai',
-    categories: ['ai', 'apps'],
-    desc: 'Official OpenAI ChatGPT desktop application with macOS system shortcut integration',
-    type: 'cask',
-    brewPackage: 'chatgpt'
-  },
-  {
-    id: 'claude',
-    name: 'Claude Desktop',
-    primaryCategory: 'ai',
-    categories: ['ai', 'apps'],
-    desc: "Anthropic's official Claude AI desktop application for macOS",
-    type: 'cask',
-    brewPackage: 'claude'
-  },
-  {
-    id: 'claude-code',
-    name: 'Claude Code',
-    primaryCategory: 'ai',
-    categories: ['ai', 'cli'],
-    desc: "Anthropic's official terminal-based agentic AI coding assistant",
-    type: 'cask',
-    brewPackage: 'claude-code'
-  },
-  {
-    id: 'agy',
-    name: 'Antigravity CLI (agy)',
-    primaryCategory: 'ai',
-    categories: ['ai', 'cli'],
-    desc: "Google DeepMind's advanced agentic AI coding assistant & terminal interface",
-    type: 'cask',
-    brewPackage: 'antigravity-cli'
-  },
-  {
-    id: 'hermes-agent',
-    name: 'Hermes Agent',
-    primaryCategory: 'ai',
-    categories: ['ai', 'cli'],
-    desc: "Nous Research's autonomous self-improving agent loop with persistent memory",
-    type: 'brew',
-    brewPackage: 'hermes-agent'
-  },
-  {
-    id: 'openclaw',
-    name: 'OpenClaw',
-    primaryCategory: 'ai',
-    categories: ['ai', 'apps'],
-    desc: 'Self-hosted autonomous AI agent framework and developer automation gateway',
-    type: 'cask',
-    brewPackage: 'openclaw'
-  },
 
+  // ==========================================
   // Containers & Databases
+  // ==========================================
   {
     id: 'orbstack',
     name: 'OrbStack',
     primaryCategory: 'containers',
-    categories: ['containers', 'apps'],
+    categories: ['containers'],
     desc: 'Fast, ultra-lightweight Mac alternative to Docker Desktop with instant startup',
     type: 'cask',
     brewPackage: 'orbstack'
@@ -347,7 +423,7 @@ const ITEMS = [
     id: 'docker',
     name: 'Docker Desktop',
     primaryCategory: 'containers',
-    categories: ['containers', 'apps'],
+    categories: ['containers'],
     desc: 'Standard Docker environment for building and running containers',
     type: 'cask',
     brewPackage: 'docker'
@@ -356,60 +432,158 @@ const ITEMS = [
     id: 'tableplus',
     name: 'TablePlus',
     primaryCategory: 'containers',
-    categories: ['containers', 'apps'],
+    categories: ['containers', 'productivity'],
     desc: 'Modern, native GUI client for PostgreSQL, MySQL, SQLite, and Redis',
     type: 'cask',
     brewPackage: 'tableplus'
   },
   {
+    id: 'dbeaver',
+    name: 'DBeaver Community',
+    primaryCategory: 'containers',
+    categories: ['containers', 'productivity'],
+    desc: 'Free multi-platform database tool for developers, SQL programmers, and DBAs',
+    type: 'cask',
+    brewPackage: 'dbeaver-community'
+  },
+  {
     id: 'bruno',
     name: 'Bruno',
     primaryCategory: 'containers',
-    categories: ['containers', 'apps'],
+    categories: ['containers', 'productivity'],
     desc: 'Fast, open-source, Git-friendly API client (lightweight Postman alternative)',
     type: 'cask',
     brewPackage: 'bruno'
   },
+  {
+    id: 'postman',
+    name: 'Postman',
+    primaryCategory: 'containers',
+    categories: ['containers', 'productivity'],
+    desc: 'Comprehensive API platform for building, testing, and mocking APIs',
+    type: 'cask',
+    brewPackage: 'postman'
+  },
 
-  // Productivity & Browsers
+  // ==========================================
+  // Web Browsers (Dedicated Category)
+  // ==========================================
   {
     id: 'chrome',
     name: 'Google Chrome',
-    primaryCategory: 'apps',
-    categories: ['apps'],
-    desc: 'Fast, standard web browser with essential DevTools',
+    primaryCategory: 'browsers',
+    categories: ['browsers'],
+    desc: 'Fast, standard Chromium web browser with industry-leading DevTools',
     type: 'cask',
     brewPackage: 'google-chrome'
   },
   {
     id: 'arc',
     name: 'Arc Browser',
-    primaryCategory: 'apps',
-    categories: ['apps'],
-    desc: 'Innovative browser designed for focused multitasking and spaces',
+    primaryCategory: 'browsers',
+    categories: ['browsers', 'productivity'],
+    desc: 'Innovative browser designed for focused multitasking, spaces, and clean tabs',
     type: 'cask',
     brewPackage: 'arc'
   },
   {
+    id: 'brave',
+    name: 'Brave Browser',
+    primaryCategory: 'browsers',
+    categories: ['browsers'],
+    desc: 'Privacy-focused browser blocking trackers and ads by default on Chromium',
+    type: 'cask',
+    brewPackage: 'brave-browser'
+  },
+  {
+    id: 'firefox',
+    name: 'Mozilla Firefox',
+    primaryCategory: 'browsers',
+    categories: ['browsers'],
+    desc: 'Fast, open-source, independent Gecko-powered browser with great privacy',
+    type: 'cask',
+    brewPackage: 'firefox'
+  },
+  {
+    id: 'zen',
+    name: 'Zen Browser',
+    primaryCategory: 'browsers',
+    categories: ['browsers'],
+    desc: 'Beautiful, privacy-respecting Firefox-based browser with vertical tabs & workspaces',
+    type: 'cask',
+    brewPackage: 'zen'
+  },
+
+  // ==========================================
+  // Productivity & Utilities (Dedicated Category)
+  // ==========================================
+  {
     id: 'raycast',
     name: 'Raycast',
-    primaryCategory: 'apps',
-    categories: ['apps'],
-    desc: 'Blazingly fast, extensible replacement for macOS Spotlight',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'Blazingly fast, extensible replacement for macOS Spotlight with hundreds of extensions',
     type: 'cask',
     brewPackage: 'raycast'
   },
   {
     id: 'rectangle',
     name: 'Rectangle',
-    primaryCategory: 'apps',
-    categories: ['apps'],
-    desc: 'Lightweight window manager with keyboard shortcuts (Magnet alternative)',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'Move and resize windows in macOS with simple keyboard shortcuts',
     type: 'cask',
     brewPackage: 'rectangle'
   },
+  {
+    id: 'obsidian',
+    name: 'Obsidian',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'Powerful markdown knowledge base and second brain working on local plain text files',
+    type: 'cask',
+    brewPackage: 'obsidian'
+  },
+  {
+    id: 'notion',
+    name: 'Notion',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'All-in-one connected workspace for notes, wiki, tasks, and project roadmaps',
+    type: 'cask',
+    brewPackage: 'notion'
+  },
+  {
+    id: 'slack',
+    name: 'Slack',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'Industry standard team messaging and communication platform for developers',
+    type: 'cask',
+    brewPackage: 'slack'
+  },
+  {
+    id: 'discord',
+    name: 'Discord',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'Voice, video, and text chat for developer communities and open-source projects',
+    type: 'cask',
+    brewPackage: 'discord'
+  },
+  {
+    id: 'linear',
+    name: 'Linear',
+    primaryCategory: 'productivity',
+    categories: ['productivity'],
+    desc: 'Fast, high-craft project management and issue tracker designed for software teams',
+    type: 'cask',
+    brewPackage: 'linear'
+  },
 
+  // ==========================================
   // macOS Developer Defaults
+  // ==========================================
   {
     id: 'tweak-finder-hidden',
     name: 'Show Hidden Files in Finder',

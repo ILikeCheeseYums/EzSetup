@@ -256,6 +256,19 @@ const ICONS = {
     <line x1="12" y1="22.08" x2="12" y2="12"/>
   </svg>`,
 
+  'category-browsers': `<svg viewBox="0 0 24 24" class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <path d="M12 3a14.5 14.5 0 000 18 14.5 14.5 0 000-18"/>
+  </svg>`,
+
+  'category-productivity': `<svg viewBox="0 0 24 24" class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+    <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+    <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+    <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+  </svg>`,
+
   'category-apps': `<svg viewBox="0 0 24 24" class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <rect x="3" y="3" width="18" height="18" rx="2"/>
     <line x1="3" y1="9" x2="21" y2="9"/>
@@ -339,6 +352,110 @@ const ICONS = {
     <path d="M17.1 21.5c4-1.3 6.9-5.1 6.9-9.5a10 10 0 00-10-10"/>
     <path d="M7 11c1-4 4-6 5-6s4 2 5 6"/>
     <path d="M9 13l3 3 3-3"/>
+  </svg>`,
+
+  'brave': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z"/>
+    <circle cx="12" cy="12" r="2.5"/>
+  </svg>`,
+
+  'firefox': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 3a9 9 0 017 14c-2 1-5 0-6-2-2-4 2-5 1-8a4 4 0 00-2-1"/>
+  </svg>`,
+
+  'zen': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="12" cy="12" r="8"/>
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 4v4M12 16v4M4 12h4M16 12h4"/>
+  </svg>`,
+
+  'obsidian': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 20 8 16 22 8 22 4 8 12 2"/>
+    <line x1="12" y1="2" x2="12" y2="22"/>
+    <line x1="4" y1="8" x2="20" y2="8"/>
+  </svg>`,
+
+  'notion': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <rect x="4" y="4" width="16" height="16" rx="2"/>
+    <path d="M8 8v8l8-8v8"/>
+  </svg>`,
+
+  'slack': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <line x1="8" y1="4" x2="8" y2="12"/>
+    <line x1="16" y1="12" x2="16" y2="20"/>
+    <line x1="4" y1="16" x2="12" y2="16"/>
+    <line x1="12" y1="8" x2="20" y2="8"/>
+    <circle cx="5" cy="8" r="1.5" fill="currentColor"/>
+    <circle cx="19" cy="16" r="1.5" fill="currentColor"/>
+  </svg>`,
+
+  'discord': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 6a15 15 0 00-4-1.2 12 12 0 00-.5 1.2 14 14 0 00-3 0 12 12 0 00-.5-1.2A15 15 0 006 6c-2.5 4-2.5 8 0 12a15 15 0 004.5 2.3c.5-.7 1-1.5 1.5-2.3a9 9 0 01-2.5-1.2c.2-.1.4-.3.6-.5a10 10 0 007.8 0c.2.2.4.4.6.5a9 9 0 01-2.5 1.2c.5.8 1 1.6 1.5 2.3A15 15 0 0018 18c2.5-4 2.5-8 0-12z"/>
+    <circle cx="9.5" cy="12" r="1.5" fill="currentColor"/>
+    <circle cx="14.5" cy="12" r="1.5" fill="currentColor"/>
+  </svg>`,
+
+  'linear': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="12" cy="12" r="8"/>
+    <path d="M8 8l8 8M8 16l8-8"/>
+  </svg>`,
+
+  'sublime-text': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 8l7-4 7 4-7 4-7-4z"/>
+    <path d="M5 12l7 4 7-4"/>
+    <path d="M5 16l7 4 7-4"/>
+  </svg>`,
+
+  'helix': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="6" rx="8" ry="3"/>
+    <ellipse cx="12" cy="18" rx="8" ry="3"/>
+    <path d="M4 6v12M20 6v12"/>
+    <path d="M6 12a8 3 0 0012 0"/>
+  </svg>`,
+
+  'wezterm': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="16" rx="3"/>
+    <polyline points="7 10 11 13 7 16"/>
+    <line x1="13" y1="16" x2="17" y2="16"/>
+  </svg>`,
+
+  'fish': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 12c-4-6-10-6-14-3 4 3 4 9 0 12 4 3 10 3 14-3z"/>
+    <circle cx="14" cy="11" r="1" fill="currentColor"/>
+    <path d="M18 12l4-4v8l-4-4z"/>
+  </svg>`,
+
+  'lazygit': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="6" y1="3" x2="6" y2="15"/>
+    <circle cx="18" cy="6" r="3"/>
+    <circle cx="6" cy="18" r="3"/>
+    <path d="M18 9a9 9 0 01-9 9"/>
+  </svg>`,
+
+  'fd': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+    <circle cx="13" cy="11" r="3"/>
+    <line x1="15.5" y1="13.5" x2="18" y2="16"/>
+  </svg>`,
+
+  'yazi': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+    <polyline points="9 13 12 10 15 13"/>
+    <line x1="12" y1="10" x2="12" y2="17"/>
+  </svg>`,
+
+  'postman': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 8v8M8 12h8"/>
+    <polygon points="12 3 15 8 9 8 12 3"/>
+  </svg>`,
+
+  'dbeaver': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="5" rx="8" ry="3"/>
+    <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
+    <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/>
   </svg>`,
 
   // Default fallback icon
