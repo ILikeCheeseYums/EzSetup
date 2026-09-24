@@ -139,7 +139,7 @@ function renderCategories() {
   });
 }
 
-// Create an Item Card Element with Authentic SVG Logo
+// Create an Item Card Element with Authentic SVG Logo & Multiple Tags
 function createItemCard(item) {
   const isSelected = appState.selected.has(item.id);
   const card = document.createElement('div');
@@ -150,14 +150,20 @@ function createItemCard(item) {
       : 'bg-zinc-900/40 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850/50'
   }`;
 
+  const tags = item.tags || [item.type.toUpperCase()];
+  const tagsString = tags.join(' ').toLowerCase();
+
   card.setAttribute('data-name', item.name.toLowerCase());
   card.setAttribute('data-desc', item.desc.toLowerCase());
   card.setAttribute('data-type', item.type);
+  card.setAttribute('data-tags', tagsString);
 
-  // Type badge text
-  let badgeText = 'CLI';
-  if (item.type === 'cask') badgeText = 'App';
-  else if (item.type === 'tweak') badgeText = 'macOS';
+  // Render multiple tags
+  const tagsHtml = tags.map(tag => `
+    <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border font-mono bg-zinc-900 text-zinc-400 border-zinc-800 shrink-0">
+      ${tag}
+    </span>
+  `).join('');
 
   card.innerHTML = `
     <div>
@@ -168,9 +174,9 @@ function createItemCard(item) {
         <div class="flex-1 min-w-0">
           <div class="flex items-center justify-between gap-1.5 mb-1">
             <h3 class="font-medium text-sm text-zinc-100 group-hover:text-white transition-colors truncate">${item.name}</h3>
-            <span class="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded border font-mono bg-zinc-900 text-zinc-400 border-zinc-800 shrink-0">
-              ${badgeText}
-            </span>
+          </div>
+          <div class="flex flex-wrap items-center gap-1 mb-2">
+            ${tagsHtml}
           </div>
           <p class="text-xs text-zinc-400 leading-relaxed">${item.desc}</p>
         </div>
@@ -271,7 +277,8 @@ function filterCards() {
     cards.forEach(card => {
       const name = card.getAttribute('data-name') || '';
       const desc = card.getAttribute('data-desc') || '';
-      const matchesSearch = query === '' || name.includes(query) || desc.includes(query);
+      const tags = card.getAttribute('data-tags') || '';
+      const matchesSearch = query === '' || name.includes(query) || desc.includes(query) || tags.includes(query);
       card.style.display = matchesSearch ? 'flex' : 'none';
       if (matchesSearch) visibleCardsCount++;
     });

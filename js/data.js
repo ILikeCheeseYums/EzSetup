@@ -10,39 +10,6 @@ const CATEGORIES = [
   { id: 'tweaks', name: 'macOS Developer Defaults', iconKey: 'category-tweaks' }
 ];
 
-const PRESETS = [
-  {
-    id: 'frontend',
-    name: 'Frontend Web',
-    desc: 'VS Code, fnm (Node), pnpm, Chrome, Starship',
-    itemIds: ['vscode', 'fnm', 'pnpm', 'chrome', 'starship', 'tweak-finder-hidden', 'tweak-key-repeat']
-  },
-  {
-    id: 'fullstack',
-    name: 'Full-Stack Web',
-    desc: 'VS Code, fnm, uv (Python), OrbStack, TablePlus, Bruno',
-    itemIds: ['vscode', 'fnm', 'pnpm', 'uv', 'orbstack', 'tableplus', 'bruno', 'starship', 'zoxide', 'eza', 'bat', 'tweak-finder-hidden', 'tweak-key-repeat']
-  },
-  {
-    id: 'python_ai',
-    name: 'Python & AI',
-    desc: 'VS Code, uv (Python), Ghostty, btop, jq',
-    itemIds: ['vscode', 'uv', 'ghostty', 'starship', 'btop', 'jq', 'tweak-finder-hidden', 'tweak-key-repeat']
-  },
-  {
-    id: 'rust_systems',
-    name: 'Systems & Rust',
-    desc: 'Zed, Neovim, Rustup, Go, Ghostty, ripgrep, fzf',
-    itemIds: ['zed', 'neovim', 'rustup', 'go', 'ghostty', 'ripgrep', 'fzf', 'bat', 'eza', 'tweak-finder-hidden', 'tweak-key-repeat']
-  },
-  {
-    id: 'terminal_pro',
-    name: 'Terminal Wizard',
-    desc: 'Ghostty, Starship, bat, eza, zoxide, fzf, ripgrep, btop',
-    itemIds: ['ghostty', 'starship', 'bat', 'eza', 'zoxide', 'fzf', 'ripgrep', 'jq', 'gh', 'btop', 'tweak-finder-hidden', 'tweak-key-repeat', 'tweak-press-and-hold']
-  }
-];
-
 const ITEMS = [
   // Code Editors
   {
@@ -51,7 +18,8 @@ const ITEMS = [
     category: 'editors',
     desc: "Microsoft's popular extensible code editor with huge plugin ecosystem",
     type: 'cask',
-    brewPackage: 'visual-studio-code'
+    brewPackage: 'visual-studio-code',
+    tags: ['GUI', 'Editor', 'Microsoft']
   },
   {
     id: 'cursor',
@@ -59,7 +27,8 @@ const ITEMS = [
     category: 'editors',
     desc: 'AI-first code editor fork of VS Code with smart completions & agent mode',
     type: 'cask',
-    brewPackage: 'cursor'
+    brewPackage: 'cursor',
+    tags: ['GUI', 'Editor', 'AI']
   },
   {
     id: 'zed',
@@ -67,7 +36,8 @@ const ITEMS = [
     category: 'editors',
     desc: 'High-performance, multiplayer code editor written in Rust with GPU rendering',
     type: 'cask',
-    brewPackage: 'zed'
+    brewPackage: 'zed',
+    tags: ['GUI', 'Editor', 'Rust', 'GPU']
   },
   {
     id: 'neovim',
@@ -75,7 +45,8 @@ const ITEMS = [
     category: 'editors',
     desc: 'Hyperextensible Vim-based text editor built for speed and Lua plugins',
     type: 'brew',
-    brewPackage: 'neovim'
+    brewPackage: 'neovim',
+    tags: ['CLI', 'Editor', 'Vim', 'Lua']
   },
   {
     id: 'jetbrains-toolbox',
@@ -83,7 +54,8 @@ const ITEMS = [
     category: 'editors',
     desc: 'Launcher and updater for IntelliJ, WebStorm, PyCharm, and Android Studio',
     type: 'cask',
-    brewPackage: 'jetbrains-toolbox'
+    brewPackage: 'jetbrains-toolbox',
+    tags: ['GUI', 'Launcher', 'JetBrains']
   },
 
   // Languages & Runtimes
@@ -93,7 +65,8 @@ const ITEMS = [
     category: 'languages',
     desc: 'Ultra-fast Node.js version manager built in Rust (modern nvm alternative)',
     type: 'brew',
-    brewPackage: 'fnm'
+    brewPackage: 'fnm',
+    tags: ['CLI', 'Node', 'Runtime', 'Rust']
   },
   {
     id: 'pnpm',
@@ -101,7 +74,8 @@ const ITEMS = [
     category: 'languages',
     desc: 'Fast, disk space efficient package manager using hard links',
     type: 'brew',
-    brewPackage: 'pnpm'
+    brewPackage: 'pnpm',
+    tags: ['CLI', 'Package Manager', 'Fast']
   },
   {
     id: 'bun',
@@ -109,7 +83,8 @@ const ITEMS = [
     category: 'languages',
     desc: 'Incredibly fast all-in-one JavaScript runtime, bundler, and package manager',
     type: 'brew',
-    brewPackage: 'oven-sh/bun/bun'
+    brewPackage: 'oven-sh/bun/bun',
+    tags: ['CLI', 'Runtime', 'JS/TS', 'Fast']
   },
   {
     id: 'uv',
@@ -117,7 +92,8 @@ const ITEMS = [
     category: 'languages',
     desc: 'Extremely fast Python package and version manager written in Rust',
     type: 'brew',
-    brewPackage: 'uv'
+    brewPackage: 'uv',
+    tags: ['CLI', 'Python', 'Rust', 'Astral']
   },
   {
     id: 'rustup',
@@ -125,7 +101,8 @@ const ITEMS = [
     category: 'languages',
     desc: 'The official installer and toolchain manager for Rust and cargo',
     type: 'brew',
-    brewPackage: 'rustup-init'
+    brewPackage: 'rustup-init',
+    tags: ['CLI', 'Toolchain', 'Rust', 'Cargo']
   },
   {
     id: 'go',
@@ -133,7 +110,8 @@ const ITEMS = [
     category: 'languages',
     desc: 'Open-source programming language by Google built for simplicity and scale',
     type: 'brew',
-    brewPackage: 'go'
+    brewPackage: 'go',
+    tags: ['CLI', 'Compiler', 'Google', 'Go']
   },
 
   // Terminals & Shell
@@ -143,7 +121,8 @@ const ITEMS = [
     category: 'terminals',
     desc: 'Fast, native, GPU-accelerated terminal emulator designed by Mitchell Hashimoto',
     type: 'cask',
-    brewPackage: 'ghostty'
+    brewPackage: 'ghostty',
+    tags: ['GUI', 'Terminal', 'GPU', 'Native']
   },
   {
     id: 'iterm2',
@@ -151,7 +130,8 @@ const ITEMS = [
     category: 'terminals',
     desc: 'Battle-tested macOS terminal replacement with split panes and search',
     type: 'cask',
-    brewPackage: 'iterm2'
+    brewPackage: 'iterm2',
+    tags: ['GUI', 'Terminal', 'macOS']
   },
   {
     id: 'warp',
@@ -159,7 +139,8 @@ const ITEMS = [
     category: 'terminals',
     desc: 'Modern Rust-based terminal with IDE-style block commands and AI assist',
     type: 'cask',
-    brewPackage: 'warp'
+    brewPackage: 'warp',
+    tags: ['GUI', 'Terminal', 'AI', 'Rust']
   },
   {
     id: 'alacritty',
@@ -167,7 +148,8 @@ const ITEMS = [
     category: 'terminals',
     desc: 'Cross-platform, GPU-accelerated minimalist terminal emulator',
     type: 'cask',
-    brewPackage: 'alacritty'
+    brewPackage: 'alacritty',
+    tags: ['GUI', 'Terminal', 'Rust', 'Minimal']
   },
   {
     id: 'starship',
@@ -175,7 +157,8 @@ const ITEMS = [
     category: 'terminals',
     desc: 'Blazingly fast, customizable cross-shell prompt showing git and runtime info',
     type: 'brew',
-    brewPackage: 'starship'
+    brewPackage: 'starship',
+    tags: ['CLI', 'Prompt', 'Rust', 'Zsh']
   },
 
   // Modern CLI Utils
@@ -185,7 +168,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'A modern cat clone with syntax highlighting and git modifications',
     type: 'brew',
-    brewPackage: 'bat'
+    brewPackage: 'bat',
+    tags: ['CLI', 'Syntax', 'Rust']
   },
   {
     id: 'eza',
@@ -193,7 +177,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'Modern replacement for ls with colors, file icons, and git status',
     type: 'brew',
-    brewPackage: 'eza'
+    brewPackage: 'eza',
+    tags: ['CLI', 'Files', 'Rust']
   },
   {
     id: 'zoxide',
@@ -201,7 +186,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'Smarter cd command that learns your most frequent directories',
     type: 'brew',
-    brewPackage: 'zoxide'
+    brewPackage: 'zoxide',
+    tags: ['CLI', 'Navigation', 'Rust']
   },
   {
     id: 'fzf',
@@ -209,7 +195,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'General-purpose command-line fuzzy finder for files, history, and git',
     type: 'brew',
-    brewPackage: 'fzf'
+    brewPackage: 'fzf',
+    tags: ['CLI', 'Search', 'Go']
   },
   {
     id: 'ripgrep',
@@ -217,7 +204,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'Ultra-fast line-oriented search tool that respects your .gitignore',
     type: 'brew',
-    brewPackage: 'ripgrep'
+    brewPackage: 'ripgrep',
+    tags: ['CLI', 'Search', 'Rust', 'Fast']
   },
   {
     id: 'jq',
@@ -225,7 +213,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'Flexible and lightweight command-line JSON processor',
     type: 'brew',
-    brewPackage: 'jq'
+    brewPackage: 'jq',
+    tags: ['CLI', 'JSON', 'Parser']
   },
   {
     id: 'gh',
@@ -233,7 +222,8 @@ const ITEMS = [
     category: 'cli',
     desc: "Take GitHub to your command line: PRs, issues, and repos",
     type: 'brew',
-    brewPackage: 'gh'
+    brewPackage: 'gh',
+    tags: ['CLI', 'GitHub', 'Git', 'Go']
   },
   {
     id: 'btop',
@@ -241,7 +231,8 @@ const ITEMS = [
     category: 'cli',
     desc: 'Aesthetic resource monitor showing CPU, memory, disk, and process stats',
     type: 'brew',
-    brewPackage: 'btop'
+    brewPackage: 'btop',
+    tags: ['CLI', 'Monitor', 'Performance']
   },
 
   // Containers & Databases
@@ -251,7 +242,8 @@ const ITEMS = [
     category: 'containers',
     desc: 'Fast, ultra-lightweight Mac alternative to Docker Desktop with instant startup',
     type: 'cask',
-    brewPackage: 'orbstack'
+    brewPackage: 'orbstack',
+    tags: ['GUI', 'Docker', 'Containers', 'Fast']
   },
   {
     id: 'docker',
@@ -259,7 +251,8 @@ const ITEMS = [
     category: 'containers',
     desc: 'Standard Docker environment for building and running containers',
     type: 'cask',
-    brewPackage: 'docker'
+    brewPackage: 'docker',
+    tags: ['GUI', 'Docker', 'Containers']
   },
   {
     id: 'tableplus',
@@ -267,7 +260,8 @@ const ITEMS = [
     category: 'containers',
     desc: 'Modern, native GUI client for PostgreSQL, MySQL, SQLite, and Redis',
     type: 'cask',
-    brewPackage: 'tableplus'
+    brewPackage: 'tableplus',
+    tags: ['GUI', 'Database', 'SQL', 'Native']
   },
   {
     id: 'bruno',
@@ -275,7 +269,8 @@ const ITEMS = [
     category: 'containers',
     desc: 'Fast, open-source, Git-friendly API client (lightweight Postman alternative)',
     type: 'cask',
-    brewPackage: 'bruno'
+    brewPackage: 'bruno',
+    tags: ['GUI', 'API', 'Git-Friendly', 'Open Source']
   },
 
   // Productivity & Browsers
@@ -285,7 +280,8 @@ const ITEMS = [
     category: 'apps',
     desc: 'Fast, standard web browser with essential DevTools',
     type: 'cask',
-    brewPackage: 'google-chrome'
+    brewPackage: 'google-chrome',
+    tags: ['GUI', 'Browser', 'DevTools']
   },
   {
     id: 'arc',
@@ -293,7 +289,8 @@ const ITEMS = [
     category: 'apps',
     desc: 'Innovative browser designed for focused multitasking and spaces',
     type: 'cask',
-    brewPackage: 'arc'
+    brewPackage: 'arc',
+    tags: ['GUI', 'Browser', 'Productivity']
   },
   {
     id: 'raycast',
@@ -301,7 +298,8 @@ const ITEMS = [
     category: 'apps',
     desc: 'Blazingly fast, extensible replacement for macOS Spotlight',
     type: 'cask',
-    brewPackage: 'raycast'
+    brewPackage: 'raycast',
+    tags: ['GUI', 'Spotlight', 'Productivity']
   },
   {
     id: 'rectangle',
@@ -309,16 +307,18 @@ const ITEMS = [
     category: 'apps',
     desc: 'Lightweight window manager with keyboard shortcuts (Magnet alternative)',
     type: 'cask',
-    brewPackage: 'rectangle'
+    brewPackage: 'rectangle',
+    tags: ['GUI', 'Window Manager', 'macOS']
   },
 
-  // macOS Dev Defaults
+  // macOS Developer Defaults
   {
     id: 'tweak-finder-hidden',
     name: 'Show Hidden Files in Finder',
     category: 'tweaks',
     desc: 'Makes dotfiles (.git, .env, .zshrc) visible in Finder windows',
     type: 'tweak',
+    tags: ['System', 'Finder', 'Dotfiles'],
     tweakCommands: [
       'defaults write com.apple.finder AppleShowAllFiles -bool true'
     ]
@@ -329,6 +329,7 @@ const ITEMS = [
     category: 'tweaks',
     desc: 'Always displays filename extensions (.ts, .py, .json) in Finder',
     type: 'tweak',
+    tags: ['System', 'Finder', 'Files'],
     tweakCommands: [
       'defaults write NSGlobalDomain AppleShowAllExtensions -bool true'
     ]
@@ -339,6 +340,7 @@ const ITEMS = [
     category: 'tweaks',
     desc: 'Displays the full directory path breadcrumb at the bottom of Finder',
     type: 'tweak',
+    tags: ['System', 'Finder', 'Breadcrumb'],
     tweakCommands: [
       'defaults write com.apple.finder ShowPathbar -bool true'
     ]
@@ -349,6 +351,7 @@ const ITEMS = [
     category: 'tweaks',
     desc: 'Accelerates key repeat speed for coding, navigation, and Vim',
     type: 'tweak',
+    tags: ['System', 'Keyboard', 'Speed'],
     tweakCommands: [
       'defaults write NSGlobalDomain KeyRepeat -int 2',
       'defaults write NSGlobalDomain InitialKeyRepeat -int 15'
@@ -360,6 +363,7 @@ const ITEMS = [
     category: 'tweaks',
     desc: 'Allows holding down keys (h/j/k/l) to repeat rather than showing accented letters',
     type: 'tweak',
+    tags: ['System', 'Keyboard', 'Vim'],
     tweakCommands: [
       'defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false'
     ]
@@ -370,6 +374,7 @@ const ITEMS = [
     category: 'tweaks',
     desc: 'Removes the delay and speeds up the animation when auto-hiding the macOS Dock',
     type: 'tweak',
+    tags: ['System', 'Dock', 'Animation'],
     tweakCommands: [
       'defaults write com.apple.dock autohide-time-modifier -float 0.15',
       'defaults write com.apple.dock autohide-delay -float 0'
