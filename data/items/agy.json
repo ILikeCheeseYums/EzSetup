@@ -1,0 +1,12 @@
+{
+  "id": "agy",
+  "name": "Antigravity CLI (agy)",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "cli"
+  ],
+  "desc": "Google DeepMind's advanced agentic AI coding assistant & terminal interface",
+  "type": "cask",
+  "brewPackage": "antigravity-cli"
+}

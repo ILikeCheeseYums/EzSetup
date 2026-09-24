@@ -1,0 +1,12 @@
+{
+  "id": "lm-studio",
+  "name": "LM Studio",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "productivity"
+  ],
+  "desc": "Discover, download, and experiment with local LLMs on your Mac via a native GUI",
+  "type": "cask",
+  "brewPackage": "lm-studio"
+}

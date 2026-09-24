@@ -1,0 +1,11 @@
+{
+  "id": "fd",
+  "name": "fd",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Simple, fast and user-friendly alternative to the find command",
+  "type": "brew",
+  "brewPackage": "fd"
+}

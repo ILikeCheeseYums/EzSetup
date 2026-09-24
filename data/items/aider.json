@@ -1,0 +1,12 @@
+{
+  "id": "aider",
+  "name": "Aider",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "cli"
+  ],
+  "desc": "AI pair programming terminal agent that coordinates git commits and multi-file edits",
+  "type": "brew",
+  "brewPackage": "aider"
+}

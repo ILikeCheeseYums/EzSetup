@@ -1,0 +1,11 @@
+{
+  "id": "zed",
+  "name": "Zed",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors"
+  ],
+  "desc": "High-performance, multiplayer code editor written in Rust with GPU rendering",
+  "type": "cask",
+  "brewPackage": "zed"
+}

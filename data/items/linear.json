@@ -1,0 +1,11 @@
+{
+  "id": "linear",
+  "name": "Linear",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "Fast, high-craft project management and issue tracker designed for software teams",
+  "type": "cask",
+  "brewPackage": "linear"
+}

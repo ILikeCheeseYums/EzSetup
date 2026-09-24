@@ -1,0 +1,12 @@
+{
+  "id": "pnpm",
+  "name": "pnpm",
+  "primaryCategory": "languages",
+  "categories": [
+    "languages",
+    "cli"
+  ],
+  "desc": "Fast, disk space efficient package manager using hard links",
+  "type": "brew",
+  "brewPackage": "pnpm"
+}

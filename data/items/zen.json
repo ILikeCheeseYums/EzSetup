@@ -1,0 +1,11 @@
+{
+  "id": "zen",
+  "name": "Zen Browser",
+  "primaryCategory": "browsers",
+  "categories": [
+    "browsers"
+  ],
+  "desc": "Beautiful, privacy-respecting Firefox-based browser with vertical tabs & workspaces",
+  "type": "cask",
+  "brewPackage": "zen"
+}

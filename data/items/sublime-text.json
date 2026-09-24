@@ -1,0 +1,11 @@
+{
+  "id": "sublime-text",
+  "name": "Sublime Text",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors"
+  ],
+  "desc": "Sophisticated text editor for code, markup, and prose with lightning speed",
+  "type": "cask",
+  "brewPackage": "sublime-text"
+}

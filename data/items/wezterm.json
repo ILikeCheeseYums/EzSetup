@@ -1,0 +1,11 @@
+{
+  "id": "wezterm",
+  "name": "WezTerm",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals"
+  ],
+  "desc": "GPU-accelerated cross-platform terminal emulator & multiplexer in Rust",
+  "type": "cask",
+  "brewPackage": "wezterm"
+}

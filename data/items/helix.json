@@ -1,0 +1,12 @@
+{
+  "id": "helix",
+  "name": "Helix Editor",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors",
+    "cli"
+  ],
+  "desc": "Post-modern modal text editor built in Rust with built-in Tree-sitter & LSP",
+  "type": "brew",
+  "brewPackage": "helix"
+}

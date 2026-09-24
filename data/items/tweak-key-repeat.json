@@ -1,0 +1,14 @@
+{
+  "id": "tweak-key-repeat",
+  "name": "Fast Key Repeat Rate",
+  "primaryCategory": "tweaks",
+  "categories": [
+    "tweaks"
+  ],
+  "desc": "Accelerates key repeat speed for coding, navigation, and Vim",
+  "type": "tweak",
+  "tweakCommands": [
+    "defaults write NSGlobalDomain KeyRepeat -int 2",
+    "defaults write NSGlobalDomain InitialKeyRepeat -int 15"
+  ]
+}

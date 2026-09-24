@@ -1,0 +1,11 @@
+{
+  "id": "jq",
+  "name": "jq",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Flexible and lightweight command-line JSON processor",
+  "type": "brew",
+  "brewPackage": "jq"
+}

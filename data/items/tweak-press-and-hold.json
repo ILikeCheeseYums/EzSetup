@@ -1,0 +1,13 @@
+{
+  "id": "tweak-press-and-hold",
+  "name": "Disable Press-and-Hold for Keys",
+  "primaryCategory": "tweaks",
+  "categories": [
+    "tweaks"
+  ],
+  "desc": "Allows holding down keys (h/j/k/l) to repeat rather than showing accented letters",
+  "type": "tweak",
+  "tweakCommands": [
+    "defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false"
+  ]
+}

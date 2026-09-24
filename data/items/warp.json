@@ -1,0 +1,12 @@
+{
+  "id": "warp",
+  "name": "Warp Terminal",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals",
+    "ai"
+  ],
+  "desc": "Modern Rust-based terminal with IDE-style block commands and AI assist",
+  "type": "cask",
+  "brewPackage": "warp"
+}

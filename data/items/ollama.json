@@ -1,0 +1,12 @@
+{
+  "id": "ollama",
+  "name": "Ollama",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "cli"
+  ],
+  "desc": "Run Llama 3, DeepSeek, and Mistral models locally with Apple Silicon Metal acceleration",
+  "type": "brew",
+  "brewPackage": "ollama"
+}

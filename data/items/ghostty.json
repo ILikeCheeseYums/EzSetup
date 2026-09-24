@@ -1,0 +1,11 @@
+{
+  "id": "ghostty",
+  "name": "Ghostty",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals"
+  ],
+  "desc": "Fast, native, GPU-accelerated terminal emulator designed by Mitchell Hashimoto",
+  "type": "cask",
+  "brewPackage": "ghostty"
+}

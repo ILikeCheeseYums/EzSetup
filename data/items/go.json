@@ -1,0 +1,12 @@
+{
+  "id": "go",
+  "name": "Go",
+  "primaryCategory": "languages",
+  "categories": [
+    "languages",
+    "cli"
+  ],
+  "desc": "Open-source programming language by Google built for simplicity and scale",
+  "type": "brew",
+  "brewPackage": "go"
+}

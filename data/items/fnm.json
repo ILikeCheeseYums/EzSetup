@@ -1,0 +1,12 @@
+{
+  "id": "fnm",
+  "name": "fnm (Fast Node Manager)",
+  "primaryCategory": "languages",
+  "categories": [
+    "languages",
+    "cli"
+  ],
+  "desc": "Ultra-fast Node.js version manager built in Rust (modern nvm alternative)",
+  "type": "brew",
+  "brewPackage": "fnm"
+}

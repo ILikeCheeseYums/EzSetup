@@ -1,0 +1,13 @@
+{
+  "id": "tweak-finder-hidden",
+  "name": "Show Hidden Files in Finder",
+  "primaryCategory": "tweaks",
+  "categories": [
+    "tweaks"
+  ],
+  "desc": "Makes dotfiles (.git, .env, .zshrc) visible in Finder windows",
+  "type": "tweak",
+  "tweakCommands": [
+    "defaults write com.apple.finder AppleShowAllFiles -bool true"
+  ]
+}

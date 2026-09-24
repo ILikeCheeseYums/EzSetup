@@ -1,0 +1,12 @@
+{
+  "id": "claude-code",
+  "name": "Claude Code",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "cli"
+  ],
+  "desc": "Anthropic's official terminal-based agentic AI coding assistant",
+  "type": "cask",
+  "brewPackage": "claude-code"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ezsetup",
+  "version": "1.0.0",
+  "description": "Modular Developer Environment & Config Generator for macOS",
+  "scripts": {
+    "build": "node scripts/build-data.js",
+    "watch": "node scripts/build-data.js --watch"
+  },
+  "keywords": [
+    "macos",
+    "developer",
+    "setup",
+    "homebrew",
+    "brewfile"
+  ],
+  "author": "",
+  "license": "MIT"
+}

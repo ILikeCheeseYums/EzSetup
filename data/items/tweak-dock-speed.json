@@ -1,0 +1,14 @@
+{
+  "id": "tweak-dock-speed",
+  "name": "Instant Dock Auto-Hide",
+  "primaryCategory": "tweaks",
+  "categories": [
+    "tweaks"
+  ],
+  "desc": "Removes the delay and speeds up the animation when auto-hiding the macOS Dock",
+  "type": "tweak",
+  "tweakCommands": [
+    "defaults write com.apple.dock autohide-time-modifier -float 0.15",
+    "defaults write com.apple.dock autohide-delay -float 0"
+  ]
+}

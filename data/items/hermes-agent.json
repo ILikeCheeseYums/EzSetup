@@ -1,0 +1,12 @@
+{
+  "id": "hermes-agent",
+  "name": "Hermes Agent",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "cli"
+  ],
+  "desc": "Nous Research's autonomous self-improving agent loop with persistent memory",
+  "type": "brew",
+  "brewPackage": "hermes-agent"
+}

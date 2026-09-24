@@ -1,0 +1,11 @@
+{
+  "id": "eza",
+  "name": "eza",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Modern replacement for ls with colors, file icons, and git status",
+  "type": "brew",
+  "brewPackage": "eza"
+}

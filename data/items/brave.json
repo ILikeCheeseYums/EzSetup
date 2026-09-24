@@ -1,0 +1,11 @@
+{
+  "id": "brave",
+  "name": "Brave Browser",
+  "primaryCategory": "browsers",
+  "categories": [
+    "browsers"
+  ],
+  "desc": "Privacy-focused browser blocking trackers and ads by default on Chromium",
+  "type": "cask",
+  "brewPackage": "brave-browser"
+}

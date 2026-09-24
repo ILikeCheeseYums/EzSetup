@@ -1,0 +1,11 @@
+{
+  "id": "ripgrep",
+  "name": "ripgrep (rg)",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Ultra-fast line-oriented search tool that respects your .gitignore",
+  "type": "brew",
+  "brewPackage": "ripgrep"
+}

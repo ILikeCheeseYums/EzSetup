@@ -1,0 +1,11 @@
+{
+  "id": "notion",
+  "name": "Notion",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "All-in-one connected workspace for notes, wiki, tasks, and project roadmaps",
+  "type": "cask",
+  "brewPackage": "notion"
+}

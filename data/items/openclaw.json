@@ -1,0 +1,12 @@
+{
+  "id": "openclaw",
+  "name": "OpenClaw",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "productivity"
+  ],
+  "desc": "Self-hosted autonomous AI agent framework and developer automation gateway",
+  "type": "cask",
+  "brewPackage": "openclaw"
+}

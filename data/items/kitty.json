@@ -1,0 +1,11 @@
+{
+  "id": "kitty",
+  "name": "kitty",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals"
+  ],
+  "desc": "Fast, feature-rich, GPU-based terminal emulator with graphics & kitten extensions",
+  "type": "cask",
+  "brewPackage": "kitty"
+}

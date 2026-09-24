@@ -1,0 +1,11 @@
+{
+  "id": "fzf",
+  "name": "fzf",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "General-purpose command-line fuzzy finder for files, history, and git",
+  "type": "brew",
+  "brewPackage": "fzf"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "fish",
+  "name": "Fish Shell",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals",
+    "cli"
+  ],
+  "desc": "Smart and user-friendly commandline shell with autosuggestions out of the box",
+  "type": "brew",
+  "brewPackage": "fish"
+}

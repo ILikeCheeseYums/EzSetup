@@ -1,0 +1,11 @@
+{
+  "id": "rectangle",
+  "name": "Rectangle",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "Move and resize windows in macOS with simple keyboard shortcuts",
+  "type": "cask",
+  "brewPackage": "rectangle"
+}

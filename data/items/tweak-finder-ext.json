@@ -1,0 +1,13 @@
+{
+  "id": "tweak-finder-ext",
+  "name": "Show All File Extensions",
+  "primaryCategory": "tweaks",
+  "categories": [
+    "tweaks"
+  ],
+  "desc": "Always displays filename extensions (.ts, .py, .json) in Finder",
+  "type": "tweak",
+  "tweakCommands": [
+    "defaults write NSGlobalDomain AppleShowAllExtensions -bool true"
+  ]
+}

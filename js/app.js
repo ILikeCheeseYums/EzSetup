@@ -1,7 +1,6 @@
-// EzSetup Application Logic (Pure Functions - No Classes)
 
 const appState = {
-  selected: new Set(['vscode', 'fnm', 'pnpm', 'chrome', 'starship', 'tweak-finder-hidden', 'tweak-key-repeat']),
+  selected: new Set(),
   searchQuery: '',
   activeCategory: 'all',
   previewTab: 'brewfile'
@@ -24,16 +23,6 @@ function setupEventListeners() {
       filterCards();
     });
   }
-
-  // Clear search on Esc
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      const modal = document.getElementById('preview-modal');
-      if (modal && !modal.classList.contains('hidden')) {
-        closePreview();
-      }
-    }
-  });
 }
 
 // Render Category Filters
@@ -365,25 +354,27 @@ function renderPreviewContent() {
   const codeEl = document.getElementById('preview-code');
   const tabBrewfile = document.getElementById('tab-brewfile');
   const tabRunScript = document.getElementById('tab-runscript');
+  const tabEnvScript = document.getElementById('tab-envscript');
+  const tabReadme = document.getElementById('tab-readmetxt');
   if (!codeEl) return;
+
+  const activeStyle = 'px-3 py-1.5 text-xs font-mono font-medium text-white border-b-2 border-zinc-200';
+  const inactiveStyle = 'px-3 py-1.5 text-xs font-mono font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
 
   if (appState.previewTab === 'brewfile') {
     codeEl.textContent = generateBrewfile(appState.selected);
-    if (tabBrewfile) {
-      tabBrewfile.className = 'px-3 py-1.5 text-xs font-mono font-medium text-white border-b-2 border-zinc-200';
-    }
-    if (tabRunScript) {
-      tabRunScript.className = 'px-3 py-1.5 text-xs font-mono font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
-    }
+  } else if (appState.previewTab === 'env') {
+    codeEl.textContent = getSetupEnvScript();
+  } else if (appState.previewTab === 'readme') {
+    codeEl.textContent = getReadmeText();
   } else {
     codeEl.textContent = generateRunScript(appState.selected);
-    if (tabBrewfile) {
-      tabBrewfile.className = 'px-3 py-1.5 text-xs font-mono font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
-    }
-    if (tabRunScript) {
-      tabRunScript.className = 'px-3 py-1.5 text-xs font-mono font-medium text-white border-b-2 border-zinc-200';
-    }
   }
+
+  if (tabBrewfile) tabBrewfile.className = appState.previewTab === 'brewfile' ? activeStyle : inactiveStyle;
+  if (tabRunScript) tabRunScript.className = appState.previewTab === 'script' ? activeStyle : inactiveStyle;
+  if (tabEnvScript) tabEnvScript.className = appState.previewTab === 'env' ? activeStyle : inactiveStyle;
+  if (tabReadme) tabReadme.className = appState.previewTab === 'readme' ? activeStyle : inactiveStyle;
 }
 
 // Update preview live if currently open

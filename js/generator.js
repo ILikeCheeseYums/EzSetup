@@ -17,8 +17,7 @@ function generateBrewfile(selectedIds) {
   const lines = [
     '# EzSetup Generated Brewfile',
     '# https://github.com/ezsetup',
-    '',
-    'tap "homebrew/bundle"'
+    ''
   ];
 
   // Check if any custom taps are needed (e.g. Bun)
@@ -83,6 +82,13 @@ echo -e "\${GREEN}[OK] macOS system preferences applied.\${NC}"
 
 set -e
 
+# Ensure Homebrew is in PATH for non-interactive / GUI shell launches
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x "/usr/local/bin/brew" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # Terminal Colors
 BOLD='\\033[1m'
 GREEN='\\033[0;32m'
@@ -95,45 +101,14 @@ echo ""
 echo -e "\${BOLD}EzSetup — macOS Developer Environment Setup\${NC}"
 echo -e "-------------------------------------------------------"
 
-# 1. macOS Darwin Check
-if [[ "\$(uname)" != "Darwin" ]]; then
-  echo -e "\${RED}[x] Error: EzSetup is designed for macOS only.\${NC}"
-  exit 1
-fi
-
-echo -e "\${GREEN}[OK] Detected macOS: \$(sw_vers -productVersion) (\$(uname -m))\${NC}"
-
-# 2. Check for Homebrew
-echo ""
-echo -e "\${CYAN}[*] Checking for Homebrew...\${NC}"
-
-if ! command -v brew >/dev/null 2>&1; then
-  echo -e "\${YELLOW}[!] Homebrew not found. Installing Homebrew...\${NC}"
-  /bin/bash -c "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  # Configure PATH for Apple Silicon vs Intel
-  if [[ -f "/opt/homebrew/bin/brew" ]]; then
-    eval "\$(/opt/homebrew/bin/brew shellenv)"
-    if ! grep -q '/opt/homebrew/bin/brew' "\$HOME/.zprofile" 2>/dev/null; then
-      echo 'eval "\$(/opt/homebrew/bin/brew shellenv)"' >> "\$HOME/.zprofile"
-    fi
-  elif [[ -f "/usr/local/bin/brew" ]]; then
-    eval "\$(/usr/local/bin/brew shellenv)"
-    if ! grep -q '/usr/local/bin/brew' "\$HOME/.zprofile" 2>/dev/null; then
-      echo 'eval "\$(/usr/local/bin/brew shellenv)"' >> "\$HOME/.zprofile"
-    fi
-  fi
-  echo -e "\${GREEN}[OK] Homebrew installed and PATH configured.\${NC}"
-else
-  echo -e "\${GREEN}[OK] Homebrew is already installed.\${NC}"
-fi
-
-# Ensure brew is updated and healthy
-echo -e "\${CYAN}[*] Updating Homebrew index...\${NC}"
-brew update
-
-# 3. Install packages via Brewfile
 SCRIPT_DIR="\$(cd "\$(dirname "\${BASH_SOURCE[0]}")" && pwd)"
+
+# 1. Pre-flight Environment & Homebrew Setup
+if [[ -f "\$SCRIPT_DIR/setup-env.sh" ]]; then
+  bash "\$SCRIPT_DIR/setup-env.sh"
+fi
+
+# 2. Install packages via Brewfile
 BREWFILE="\$SCRIPT_DIR/Brewfile"
 
 if [[ -f "\$BREWFILE" ]]; then
@@ -154,37 +129,22 @@ echo ""
 `;
 }
 
-// 3. Generate README.txt included in the .zip bundle
-function generateReadmeText(selectedIds) {
-  return `EzSetup — macOS Setup Bundle
-==============================
-
-This folder contains your tailored macOS setup files.
-
-FILES:
-- run.sh: The automated installation script.
-- Brewfile: Homebrew configuration file with all chosen apps and packages.
-
-HOW TO RUN:
-1. Open your Terminal (Terminal.app, iTerm2, or Ghostty).
-2. Navigate to this unzipped folder:
-   cd /path/to/ezsetup-bundle
-3. Make the script executable and run it:
-   chmod +x run.sh
-   ./run.sh
-
-WHAT THE SCRIPT DOES:
-- Verifies macOS environment.
-- Checks if Homebrew is installed. If missing, installs it automatically.
-- Automatically handles Apple Silicon (/opt/homebrew) vs Intel (/usr/local) paths.
-- Installs all selected apps, tools, and runtimes via 'brew bundle'.
-- Applies any selected macOS developer defaults (e.g. Finder hidden files, key repeat).
-
-Happy coding!
-`;
+// 3. Helper to get setup-env.sh template content
+function getSetupEnvScript() {
+  return typeof SETUP_ENV_SCRIPT !== 'undefined' ? SETUP_ENV_SCRIPT : '';
 }
 
-// 4. Generate and trigger download of the .zip bundle
+// 4. Helper to get README.txt template content
+function getReadmeText() {
+  return typeof README_TXT_TEMPLATE !== 'undefined' ? README_TXT_TEMPLATE : '';
+}
+
+// 5. Generate README.txt included in the .zip bundle
+function generateReadmeText(selectedIds) {
+  return getReadmeText();
+}
+
+// 5. Generate and trigger download of the .zip bundle
 async function generateAndDownloadZip(selectedIds) {
   if (!window.JSZip) {
     alert('JSZip library is still loading. Please try again in a moment.');
@@ -195,10 +155,12 @@ async function generateAndDownloadZip(selectedIds) {
 
   const brewfileContent = generateBrewfile(selectedIds);
   const runScriptContent = generateRunScript(selectedIds);
+  const envScriptContent = getSetupEnvScript();
   const readmeContent = generateReadmeText(selectedIds);
 
   zip.file('Brewfile', brewfileContent);
   zip.file('run.sh', runScriptContent, { unixPermissions: '755' });
+  zip.file('setup-env.sh', envScriptContent, { unixPermissions: '755' });
   zip.file('README.txt', readmeContent);
 
   const content = await zip.generateAsync({

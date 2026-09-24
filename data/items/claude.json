@@ -1,0 +1,12 @@
+{
+  "id": "claude",
+  "name": "Claude Desktop",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "productivity"
+  ],
+  "desc": "Anthropic's official Claude AI desktop application for macOS",
+  "type": "cask",
+  "brewPackage": "claude"
+}

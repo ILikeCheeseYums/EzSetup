@@ -1,0 +1,11 @@
+{
+  "id": "slack",
+  "name": "Slack",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "Industry standard team messaging and communication platform for developers",
+  "type": "cask",
+  "brewPackage": "slack"
+}

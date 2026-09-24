@@ -1,0 +1,11 @@
+{
+  "id": "discord",
+  "name": "Discord",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "Voice, video, and text chat for developer communities and open-source projects",
+  "type": "cask",
+  "brewPackage": "discord"
+}

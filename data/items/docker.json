@@ -1,0 +1,11 @@
+{
+  "id": "docker",
+  "name": "Docker Desktop",
+  "primaryCategory": "containers",
+  "categories": [
+    "containers"
+  ],
+  "desc": "Standard Docker environment for building and running containers",
+  "type": "cask",
+  "brewPackage": "docker"
+}

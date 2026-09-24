@@ -1,0 +1,11 @@
+{
+  "id": "lazygit",
+  "name": "lazygit",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Simple terminal UI for git commands that makes branch & merge workflows effortless",
+  "type": "brew",
+  "brewPackage": "lazygit"
+}

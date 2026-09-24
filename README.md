@@ -57,13 +57,53 @@ python3 -m http.server 8000
 
 ```
 EzSetup/
-├── index.html        # Clean, minimalist UI (Tailwind CSS CDN + JSZip)
+├── index.html            # Clean, minimalist UI (Tailwind CSS CDN + JSZip)
+├── data/
+│   ├── categories.json   # Category metadata & display order
+│   └── items/            # Individual item JSON files (easy to add & edit!)
+│       ├── vscode.json
+│       ├── fnm.json
+│       └── ...
+├── templates/
+│   ├── setup-env.sh      # Pre-flight environment & Homebrew setup script (freely editable!)
+│   └── README.txt        # Bundle documentation template (freely editable!)
 ├── js/
-│   ├── data.js       # Catalog of apps, tools, tweaks, and presets
-│   ├── generator.js  # Pure functions for Brewfile, run.sh & zip generation
-│   └── app.js        # DOM rendering, state management & user interactions
-└── README.md         # Project overview and documentation
+│   ├── data.js           # Compiled catalog bundle (auto-generated from data/)
+│   ├── templates.js      # Compiled templates bundle (auto-generated from templates/)
+│   ├── icons.js          # Vector SVG brand icons
+│   ├── generator.js      # Pure functions for Brewfile, run.sh & zip generation
+│   └── app.js            # DOM rendering, state management & user interactions
+├── scripts/
+│   └── build-data.js     # Validates & compiles data/ and templates/
+└── README.md             # Project overview and documentation
 ```
+
+---
+
+## 🛠️ Adding New Tools & Tweaks
+
+Adding a new tool is as simple as creating a JSON file:
+
+1. Create a file in `data/items/<id>.json`:
+   ```json
+   {
+     "id": "my-tool",
+     "name": "My Tool",
+     "primaryCategory": "cli",
+     "categories": ["cli", "productivity"],
+     "desc": "Short description of what the tool does",
+     "type": "brew",
+     "brewPackage": "my-tool"
+   }
+   ```
+   *(For GUI apps, use `"type": "cask"`. For macOS tweaks, use `"type": "tweak"` with `"tweakCommands": [...]`)*
+
+2. Build the bundle:
+   ```bash
+   npm run build
+   # Or auto-rebuild while you edit:
+   npm run watch
+   ```
 
 ---
 

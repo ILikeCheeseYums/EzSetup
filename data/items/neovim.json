@@ -1,0 +1,12 @@
+{
+  "id": "neovim",
+  "name": "Neovim",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors",
+    "cli"
+  ],
+  "desc": "Hyperextensible Vim-based text editor built for speed and Lua plugins",
+  "type": "brew",
+  "brewPackage": "neovim"
+}

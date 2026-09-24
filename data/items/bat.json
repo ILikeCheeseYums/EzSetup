@@ -1,0 +1,11 @@
+{
+  "id": "bat",
+  "name": "bat",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "A modern cat clone with syntax highlighting and git modifications",
+  "type": "brew",
+  "brewPackage": "bat"
+}

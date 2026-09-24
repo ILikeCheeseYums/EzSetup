@@ -1,0 +1,12 @@
+{
+  "id": "arc",
+  "name": "Arc Browser",
+  "primaryCategory": "browsers",
+  "categories": [
+    "browsers",
+    "productivity"
+  ],
+  "desc": "Innovative browser designed for focused multitasking, spaces, and clean tabs",
+  "type": "cask",
+  "brewPackage": "arc"
+}

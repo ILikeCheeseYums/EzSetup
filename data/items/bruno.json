@@ -1,0 +1,12 @@
+{
+  "id": "bruno",
+  "name": "Bruno",
+  "primaryCategory": "containers",
+  "categories": [
+    "containers",
+    "productivity"
+  ],
+  "desc": "Fast, open-source, Git-friendly API client (lightweight Postman alternative)",
+  "type": "cask",
+  "brewPackage": "bruno"
+}

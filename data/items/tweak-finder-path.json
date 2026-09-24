@@ -1,0 +1,13 @@
+{
+  "id": "tweak-finder-path",
+  "name": "Show Path Bar in Finder",
+  "primaryCategory": "tweaks",
+  "categories": [
+    "tweaks"
+  ],
+  "desc": "Displays the full directory path breadcrumb at the bottom of Finder",
+  "type": "tweak",
+  "tweakCommands": [
+    "defaults write com.apple.finder ShowPathbar -bool true"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "jan",
+  "name": "Jan",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "productivity"
+  ],
+  "desc": "Open-source desktop AI assistant and local LLM runner working 100% offline",
+  "type": "cask",
+  "brewPackage": "jan"
+}

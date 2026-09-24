@@ -1,0 +1,12 @@
+{
+  "id": "starship",
+  "name": "Starship Prompt",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals",
+    "cli"
+  ],
+  "desc": "Blazingly fast, customizable cross-shell prompt showing git and runtime info",
+  "type": "brew",
+  "brewPackage": "starship"
+}

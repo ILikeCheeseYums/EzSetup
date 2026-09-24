@@ -1,0 +1,11 @@
+{
+  "id": "zoxide",
+  "name": "zoxide",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Smarter cd command that learns your most frequent directories",
+  "type": "brew",
+  "brewPackage": "zoxide"
+}

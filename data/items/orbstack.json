@@ -1,0 +1,11 @@
+{
+  "id": "orbstack",
+  "name": "OrbStack",
+  "primaryCategory": "containers",
+  "categories": [
+    "containers"
+  ],
+  "desc": "Fast, ultra-lightweight Mac alternative to Docker Desktop with instant startup",
+  "type": "cask",
+  "brewPackage": "orbstack"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "iterm2",
+  "name": "iTerm2",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals"
+  ],
+  "desc": "Battle-tested macOS terminal replacement with split panes and search",
+  "type": "cask",
+  "brewPackage": "iterm2"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "btop",
+  "name": "btop",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Aesthetic resource monitor showing CPU, memory, disk, and process stats",
+  "type": "brew",
+  "brewPackage": "btop"
+}

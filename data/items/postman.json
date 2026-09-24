@@ -1,0 +1,12 @@
+{
+  "id": "postman",
+  "name": "Postman",
+  "primaryCategory": "containers",
+  "categories": [
+    "containers",
+    "productivity"
+  ],
+  "desc": "Comprehensive API platform for building, testing, and mocking APIs",
+  "type": "cask",
+  "brewPackage": "postman"
+}

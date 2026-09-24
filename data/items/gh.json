@@ -1,0 +1,11 @@
+{
+  "id": "gh",
+  "name": "GitHub CLI (gh)",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Take GitHub to your command line: PRs, issues, and repos",
+  "type": "brew",
+  "brewPackage": "gh"
+}

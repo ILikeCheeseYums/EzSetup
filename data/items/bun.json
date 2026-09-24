@@ -1,0 +1,12 @@
+{
+  "id": "bun",
+  "name": "Bun",
+  "primaryCategory": "languages",
+  "categories": [
+    "languages",
+    "cli"
+  ],
+  "desc": "Incredibly fast all-in-one JavaScript runtime, bundler, and package manager",
+  "type": "brew",
+  "brewPackage": "oven-sh/bun/bun"
+}

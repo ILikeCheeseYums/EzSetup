@@ -1,0 +1,11 @@
+{
+  "id": "yazi",
+  "name": "yazi",
+  "primaryCategory": "cli",
+  "categories": [
+    "cli"
+  ],
+  "desc": "Blazingly fast terminal file manager written in Rust with async I/O",
+  "type": "brew",
+  "brewPackage": "yazi"
+}

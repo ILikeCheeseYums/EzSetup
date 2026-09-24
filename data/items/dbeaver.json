@@ -1,0 +1,12 @@
+{
+  "id": "dbeaver",
+  "name": "DBeaver Community",
+  "primaryCategory": "containers",
+  "categories": [
+    "containers",
+    "productivity"
+  ],
+  "desc": "Free multi-platform database tool for developers, SQL programmers, and DBAs",
+  "type": "cask",
+  "brewPackage": "dbeaver-community"
+}

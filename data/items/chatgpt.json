@@ -1,0 +1,12 @@
+{
+  "id": "chatgpt",
+  "name": "ChatGPT Desktop",
+  "primaryCategory": "ai",
+  "categories": [
+    "ai",
+    "productivity"
+  ],
+  "desc": "Official OpenAI ChatGPT desktop application with macOS system shortcut integration",
+  "type": "cask",
+  "brewPackage": "chatgpt"
+}

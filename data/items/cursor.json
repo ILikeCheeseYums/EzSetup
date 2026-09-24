@@ -1,0 +1,12 @@
+{
+  "id": "cursor",
+  "name": "Cursor",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors",
+    "ai"
+  ],
+  "desc": "AI-first code editor fork of VS Code with smart completions & agent mode",
+  "type": "cask",
+  "brewPackage": "cursor"
+}

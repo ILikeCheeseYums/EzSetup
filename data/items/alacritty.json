@@ -1,0 +1,11 @@
+{
+  "id": "alacritty",
+  "name": "Alacritty",
+  "primaryCategory": "terminals",
+  "categories": [
+    "terminals"
+  ],
+  "desc": "Cross-platform, GPU-accelerated minimalist terminal emulator",
+  "type": "cask",
+  "brewPackage": "alacritty"
+}

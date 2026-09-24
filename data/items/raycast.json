@@ -1,0 +1,11 @@
+{
+  "id": "raycast",
+  "name": "Raycast",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "Blazingly fast, extensible replacement for macOS Spotlight with hundreds of extensions",
+  "type": "cask",
+  "brewPackage": "raycast"
+}

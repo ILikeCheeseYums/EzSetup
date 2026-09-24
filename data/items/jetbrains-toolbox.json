@@ -1,0 +1,12 @@
+{
+  "id": "jetbrains-toolbox",
+  "name": "JetBrains Toolbox",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors",
+    "productivity"
+  ],
+  "desc": "Launcher and updater for IntelliJ, WebStorm, PyCharm, and Android Studio",
+  "type": "cask",
+  "brewPackage": "jetbrains-toolbox"
+}

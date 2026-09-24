@@ -1,0 +1,12 @@
+{
+  "id": "tableplus",
+  "name": "TablePlus",
+  "primaryCategory": "containers",
+  "categories": [
+    "containers",
+    "productivity"
+  ],
+  "desc": "Modern, native GUI client for PostgreSQL, MySQL, SQLite, and Redis",
+  "type": "cask",
+  "brewPackage": "tableplus"
+}

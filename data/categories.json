@@ -1,0 +1,56 @@
+[
+  {
+    "id": "editors",
+    "name": "Code Editors & IDEs",
+    "shortName": "Editors",
+    "iconKey": "category-editors"
+  },
+  {
+    "id": "languages",
+    "name": "Languages & Runtimes",
+    "shortName": "Languages",
+    "iconKey": "category-languages"
+  },
+  {
+    "id": "terminals",
+    "name": "Terminals & Shell",
+    "shortName": "Terminals",
+    "iconKey": "category-terminals"
+  },
+  {
+    "id": "cli",
+    "name": "Modern CLI Utils",
+    "shortName": "CLI",
+    "iconKey": "category-cli"
+  },
+  {
+    "id": "ai",
+    "name": "AI Agents & LLMs",
+    "shortName": "AI Agents",
+    "iconKey": "category-ai"
+  },
+  {
+    "id": "containers",
+    "name": "Containers & Databases",
+    "shortName": "Containers",
+    "iconKey": "category-containers"
+  },
+  {
+    "id": "browsers",
+    "name": "Web Browsers",
+    "shortName": "Browsers",
+    "iconKey": "category-browsers"
+  },
+  {
+    "id": "productivity",
+    "name": "Productivity & Utilities",
+    "shortName": "Productivity",
+    "iconKey": "category-productivity"
+  },
+  {
+    "id": "tweaks",
+    "name": "macOS Defaults",
+    "shortName": "macOS",
+    "iconKey": "category-tweaks"
+  }
+]

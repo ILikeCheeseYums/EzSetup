@@ -1,0 +1,11 @@
+{
+  "id": "vscode",
+  "name": "Visual Studio Code",
+  "primaryCategory": "editors",
+  "categories": [
+    "editors"
+  ],
+  "desc": "Microsoft's popular extensible code editor with huge plugin ecosystem",
+  "type": "cask",
+  "brewPackage": "visual-studio-code"
+}

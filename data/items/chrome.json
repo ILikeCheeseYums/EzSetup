@@ -1,0 +1,11 @@
+{
+  "id": "chrome",
+  "name": "Google Chrome",
+  "primaryCategory": "browsers",
+  "categories": [
+    "browsers"
+  ],
+  "desc": "Fast, standard Chromium web browser with industry-leading DevTools",
+  "type": "cask",
+  "brewPackage": "google-chrome"
+}

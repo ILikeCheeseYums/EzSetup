@@ -1,0 +1,11 @@
+{
+  "id": "obsidian",
+  "name": "Obsidian",
+  "primaryCategory": "productivity",
+  "categories": [
+    "productivity"
+  ],
+  "desc": "Powerful markdown knowledge base and second brain working on local plain text files",
+  "type": "cask",
+  "brewPackage": "obsidian"
+}

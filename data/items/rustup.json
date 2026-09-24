@@ -1,0 +1,12 @@
+{
+  "id": "rustup",
+  "name": "Rust (rustup)",
+  "primaryCategory": "languages",
+  "categories": [
+    "languages",
+    "cli"
+  ],
+  "desc": "The official installer and toolchain manager for Rust and cargo",
+  "type": "brew",
+  "brewPackage": "rustup-init"
+}

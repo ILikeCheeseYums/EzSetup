@@ -1,0 +1,12 @@
+{
+  "id": "uv",
+  "name": "uv (Fast Python Manager)",
+  "primaryCategory": "languages",
+  "categories": [
+    "languages",
+    "cli"
+  ],
+  "desc": "Extremely fast Python package and version manager written in Rust",
+  "type": "brew",
+  "brewPackage": "uv"
+}

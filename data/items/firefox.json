@@ -1,0 +1,11 @@
+{
+  "id": "firefox",
+  "name": "Mozilla Firefox",
+  "primaryCategory": "browsers",
+  "categories": [
+    "browsers"
+  ],
+  "desc": "Fast, open-source, independent Gecko-powered browser with great privacy",
+  "type": "cask",
+  "brewPackage": "firefox"
+}
