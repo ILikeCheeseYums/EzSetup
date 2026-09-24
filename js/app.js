@@ -3,12 +3,13 @@
 const appState = {
   selected: new Set(['vscode', 'fnm', 'pnpm', 'chrome', 'starship', 'tweak-finder-hidden', 'tweak-key-repeat']),
   searchQuery: '',
+  activeCategory: 'all',
   previewTab: 'brewfile'
 };
 
 // Initialize App
 function initApp() {
-  renderPresets();
+  renderCategoryFilters();
   renderCategories();
   updateActionBar();
   setupEventListeners();
@@ -35,33 +36,66 @@ function setupEventListeners() {
   });
 }
 
-// Render Presets
-function renderPresets() {
-  const container = document.getElementById('presets-container');
+// Render Category Filters
+function renderCategoryFilters() {
+  const container = document.getElementById('filters-container');
+  const actionsContainer = document.getElementById('selection-actions');
   if (!container) return;
 
   container.innerHTML = '';
 
-  // Preset pills
-  PRESETS.forEach(preset => {
+  // "All" filter button
+  const allBtn = document.createElement('button');
+  allBtn.type = 'button';
+  const isAllActive = appState.activeCategory === 'all';
+  allBtn.className = `px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+    isAllActive
+      ? 'bg-zinc-100 text-zinc-950 font-semibold shadow-sm'
+      : 'bg-zinc-900/80 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700'
+  }`;
+  allBtn.textContent = `All (${ITEMS.length})`;
+  allBtn.onclick = function() {
+    setCategoryFilter('all');
+  };
+  container.appendChild(allBtn);
+
+  // Each category filter button
+  CATEGORIES.forEach(category => {
+    const categoryCount = ITEMS.filter(item => item.category === category.id).length;
+    const isActive = appState.activeCategory === category.id;
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-medium border border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:text-white hover:border-zinc-600 hover:bg-zinc-850 transition-all';
-    btn.textContent = preset.name;
-    btn.title = preset.desc;
+    btn.className = `px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+      isActive
+        ? 'bg-zinc-100 text-zinc-950 font-semibold shadow-sm'
+        : 'bg-zinc-900/80 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700'
+    }`;
+    btn.textContent = `${category.name} (${categoryCount})`;
     btn.onclick = function() {
-      applyPreset(preset.id);
+      setCategoryFilter(category.id);
     };
     container.appendChild(btn);
   });
 
-  // Clear button
-  const clearBtn = document.createElement('button');
-  clearBtn.type = 'button';
-  clearBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-medium border border-zinc-800 text-zinc-500 hover:text-zinc-300 hover:border-zinc-700 transition-all';
-  clearBtn.textContent = 'Clear All';
-  clearBtn.onclick = clearAll;
-  container.appendChild(clearBtn);
+  // Deselect / Clear selection button
+  if (actionsContainer) {
+    actionsContainer.innerHTML = '';
+    if (appState.selected.size > 0) {
+      const clearBtn = document.createElement('button');
+      clearBtn.type = 'button';
+      clearBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-mono text-zinc-500 hover:text-zinc-300 border border-zinc-800 hover:border-zinc-700 transition-all';
+      clearBtn.textContent = 'Deselect All';
+      clearBtn.onclick = clearAll;
+      actionsContainer.appendChild(clearBtn);
+    }
+  }
+}
+
+// Set Category Filter
+function setCategoryFilter(categoryId) {
+  appState.activeCategory = categoryId;
+  renderCategoryFilters();
+  filterCards();
 }
 
 // Render Categories and Cards
@@ -203,17 +237,7 @@ function toggleItem(itemId) {
   }
 
   updateActionBar();
-  updateLivePreviewIfOpen();
-}
-
-// Apply Preset
-function applyPreset(presetId) {
-  const preset = PRESETS.find(p => p.id === presetId);
-  if (!preset) return;
-
-  appState.selected = new Set(preset.itemIds);
-  renderCategories();
-  updateActionBar();
+  renderCategoryFilters();
   updateLivePreviewIfOpen();
 }
 
@@ -221,28 +245,38 @@ function applyPreset(presetId) {
 function clearAll() {
   appState.selected.clear();
   renderCategories();
+  renderCategoryFilters();
+  filterCards();
   updateActionBar();
   updateLivePreviewIfOpen();
 }
 
-// Filter Cards based on search query
+// Filter Cards based on activeCategory and search query
 function filterCards() {
   const query = appState.searchQuery;
-  const cards = document.querySelectorAll('.item-card');
+  const activeCategory = appState.activeCategory;
   const sections = document.querySelectorAll('.category-section');
 
-  cards.forEach(card => {
-    const name = card.getAttribute('data-name') || '';
-    const desc = card.getAttribute('data-desc') || '';
-    const matches = name.includes(query) || desc.includes(query);
-    card.style.display = matches ? 'flex' : 'none';
-  });
-
-  // Hide empty category sections
   sections.forEach(section => {
-    const visibleCards = section.querySelectorAll('.item-card[style*="display: flex"]');
-    const hasVisible = query === '' ? true : visibleCards.length > 0;
-    section.style.display = hasVisible ? 'block' : 'none';
+    const sectionCatId = section.getAttribute('data-category-id');
+    const categoryMatches = (activeCategory === 'all' || activeCategory === sectionCatId);
+
+    if (!categoryMatches) {
+      section.style.display = 'none';
+      return;
+    }
+
+    let visibleCardsCount = 0;
+    const cards = section.querySelectorAll('.item-card');
+    cards.forEach(card => {
+      const name = card.getAttribute('data-name') || '';
+      const desc = card.getAttribute('data-desc') || '';
+      const matchesSearch = query === '' || name.includes(query) || desc.includes(query);
+      card.style.display = matchesSearch ? 'flex' : 'none';
+      if (matchesSearch) visibleCardsCount++;
+    });
+
+    section.style.display = visibleCardsCount > 0 ? 'block' : 'none';
   });
 }
 
