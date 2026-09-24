@@ -309,6 +309,38 @@ const ICONS = {
     <path d="M12 3a4 4 0 00-3.6 2.3 4 4 0 00-4.1 2.2 4 4 0 00.5 4.7 4 4 0 00-.5 4.7 4 4 0 004.1 2.2 4 4 0 003.6 2.3 4 4 0 003.6-2.3 4 4 0 004.1-2.2 4 4 0 00-.5-4.7 4 4 0 00.5-4.7 4 4 0 00-4.1-2.2A4 4 0 0012 3z"/>
   </svg>`,
 
+  'agy': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 3a9 9 0 010 18"/>
+    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+    <path d="M12 7v2M12 15v2M7 12H5M19 12h-2"/>
+  </svg>`,
+
+  'claude': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+    <circle cx="12" cy="12" r="4" fill="currentColor" fill-opacity="0.2"/>
+  </svg>`,
+
+  'claude-code': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="16" rx="3"/>
+    <path d="M7 9l3 3-3 3M12 15h5"/>
+    <circle cx="18" cy="8" r="1.5" fill="currentColor"/>
+  </svg>`,
+
+  'hermes-agent': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3c-4 0-7 3-7 7v4c0 3 2 5 5 6v2h4v-2c3-1 5-3 5-6v-4c0-4-3-7-7-7z"/>
+    <path d="M3 10c0-3 3-6 7-6M21 10c0-3-3-6-7-6"/>
+    <circle cx="9" cy="11" r="1" fill="currentColor"/>
+    <circle cx="15" cy="11" r="1" fill="currentColor"/>
+  </svg>`,
+
+  'openclaw': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2a10 10 0 00-10 10c0 4.4 2.9 8.2 6.9 9.5"/>
+    <path d="M17.1 21.5c4-1.3 6.9-5.1 6.9-9.5a10 10 0 00-10-10"/>
+    <path d="M7 11c1-4 4-6 5-6s4 2 5 6"/>
+    <path d="M9 13l3 3 3-3"/>
+  </svg>`,
+
   // Default fallback icon
   'default': `<svg viewBox="0 0 24 24" class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="4" y="4" width="16" height="16" rx="2"/>

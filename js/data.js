@@ -287,6 +287,51 @@ const ITEMS = [
     type: 'cask',
     brewPackage: 'chatgpt'
   },
+  {
+    id: 'claude',
+    name: 'Claude Desktop',
+    primaryCategory: 'ai',
+    categories: ['ai', 'apps'],
+    desc: "Anthropic's official Claude AI desktop application for macOS",
+    type: 'cask',
+    brewPackage: 'claude'
+  },
+  {
+    id: 'claude-code',
+    name: 'Claude Code',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: "Anthropic's official terminal-based agentic AI coding assistant",
+    type: 'cask',
+    brewPackage: 'claude-code'
+  },
+  {
+    id: 'agy',
+    name: 'Antigravity CLI (agy)',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: "Google DeepMind's advanced agentic AI coding assistant & terminal interface",
+    type: 'cask',
+    brewPackage: 'antigravity-cli'
+  },
+  {
+    id: 'hermes-agent',
+    name: 'Hermes Agent',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: "Nous Research's autonomous self-improving agent loop with persistent memory",
+    type: 'brew',
+    brewPackage: 'hermes-agent'
+  },
+  {
+    id: 'openclaw',
+    name: 'OpenClaw',
+    primaryCategory: 'ai',
+    categories: ['ai', 'apps'],
+    desc: 'Self-hosted autonomous AI agent framework and developer automation gateway',
+    type: 'cask',
+    brewPackage: 'openclaw'
+  },
 
   // Containers & Databases
   {
