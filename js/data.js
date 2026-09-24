@@ -156,6 +156,15 @@ const ITEMS = [
     brewPackage: 'ghostty'
   },
   {
+    id: 'kitty',
+    name: 'kitty',
+    primaryCategory: 'terminals',
+    categories: ['terminals'],
+    desc: 'Fast, feature-rich, GPU-based terminal emulator with graphics & kitten extensions',
+    type: 'cask',
+    brewPackage: 'kitty'
+  },
+  {
     id: 'iterm2',
     name: 'iTerm2',
     primaryCategory: 'terminals',

@@ -73,6 +73,13 @@ const ICONS = {
     <circle cx="14.5" cy="10" r="1.2" fill="currentColor"/>
   </svg>`,
 
+  'kitty': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5c-3 0-5 2-6 4L4 4l2 7c-1 1-1 3-1 4 0 4 3 6 7 6s7-2 7-6c0-1 0-3-1-4l2-7-2 5c-1-2-3-4-6-4z"/>
+    <circle cx="9.5" cy="14" r="1" fill="currentColor"/>
+    <circle cx="14.5" cy="14" r="1" fill="currentColor"/>
+    <path d="M12 16v1.5M9 16.5l-3 1M15 16.5l3 1"/>
+  </svg>`,
+
   'iterm2': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="3" y="4" width="18" height="16" rx="3"/>
     <path d="M7 9l3 3-3 3M12 15h5"/>
