@@ -46,7 +46,7 @@ function renderPresets() {
   PRESETS.forEach(preset => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-zinc-700 bg-zinc-800/80 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all';
+    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-medium border border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:text-white hover:border-zinc-600 hover:bg-zinc-850 transition-all';
     btn.textContent = preset.name;
     btn.title = preset.desc;
     btn.onclick = function() {
@@ -58,7 +58,7 @@ function renderPresets() {
   // Clear button
   const clearBtn = document.createElement('button');
   clearBtn.type = 'button';
-  clearBtn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-red-900/50 bg-red-950/20 text-red-400 hover:bg-red-900/40 hover:text-red-200 transition-all';
+  clearBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-medium border border-zinc-800 text-zinc-500 hover:text-zinc-300 hover:border-zinc-700 transition-all';
   clearBtn.textContent = 'Clear All';
   clearBtn.onclick = clearAll;
   container.appendChild(clearBtn);
@@ -79,12 +79,14 @@ function renderCategories() {
     section.className = 'category-section mb-10';
     section.setAttribute('data-category-id', category.id);
 
-    // Section Header
+    // Section Header with clean SVG icon
     const header = document.createElement('div');
-    header.className = 'flex items-center gap-2 mb-4 pb-2 border-b border-zinc-800/80';
+    header.className = 'flex items-center gap-2.5 mb-4 pb-2 border-b border-zinc-800';
     header.innerHTML = `
-      <span class="text-xl">${category.icon}</span>
-      <h2 class="text-base font-semibold text-zinc-200">${category.name}</h2>
+      <div class="flex items-center justify-center w-6 h-6 rounded bg-zinc-900 border border-zinc-800">
+        ${getIcon(category.iconKey)}
+      </div>
+      <h2 class="text-sm font-semibold tracking-wide text-zinc-200 uppercase">${category.name}</h2>
       <span class="text-xs text-zinc-500 ml-auto font-mono category-count">${categoryItems.length} items</span>
     `;
     section.appendChild(header);
@@ -103,53 +105,51 @@ function renderCategories() {
   });
 }
 
-// Create an Item Card Element
+// Create an Item Card Element with Authentic SVG Logo
 function createItemCard(item) {
   const isSelected = appState.selected.has(item.id);
   const card = document.createElement('div');
   card.id = `item-${item.id}`;
   card.className = `item-card group relative p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
     isSelected
-      ? 'bg-zinc-800/80 border-indigo-500/80 shadow-sm shadow-indigo-500/10'
-      : 'bg-zinc-900/40 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-800/30'
+      ? 'bg-zinc-850 border-zinc-400 shadow-sm shadow-black/40'
+      : 'bg-zinc-900/40 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850/50'
   }`;
 
   card.setAttribute('data-name', item.name.toLowerCase());
   card.setAttribute('data-desc', item.desc.toLowerCase());
   card.setAttribute('data-type', item.type);
 
-  // Type badge styling
-  let badgeColor = 'bg-zinc-800 text-zinc-400 border-zinc-700';
-  let badgeText = item.type;
-  if (item.type === 'cask') {
-    badgeColor = 'bg-blue-950/60 text-blue-300 border-blue-800/50';
-    badgeText = 'GUI App';
-  } else if (item.type === 'brew') {
-    badgeColor = 'bg-emerald-950/60 text-emerald-300 border-emerald-800/50';
-    badgeText = 'CLI Tool';
-  } else if (item.type === 'tweak') {
-    badgeColor = 'bg-purple-950/60 text-purple-300 border-purple-800/50';
-    badgeText = 'macOS Tweak';
-  }
+  // Type badge text
+  let badgeText = 'CLI';
+  if (item.type === 'cask') badgeText = 'App';
+  else if (item.type === 'tweak') badgeText = 'macOS';
 
   card.innerHTML = `
     <div>
-      <div class="flex items-start justify-between gap-2 mb-1.5">
-        <h3 class="font-medium text-sm text-zinc-100 group-hover:text-white transition-colors">${item.name}</h3>
-        <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border font-mono ${badgeColor}">
-          ${badgeText}
-        </span>
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 text-zinc-300 group-hover:border-zinc-700 transition-colors">
+          ${getIcon(item.id)}
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-1.5 mb-1">
+            <h3 class="font-medium text-sm text-zinc-100 group-hover:text-white transition-colors truncate">${item.name}</h3>
+            <span class="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded border font-mono bg-zinc-900 text-zinc-400 border-zinc-800 shrink-0">
+              ${badgeText}
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed">${item.desc}</p>
+        </div>
       </div>
-      <p class="text-xs text-zinc-400 leading-relaxed">${item.desc}</p>
     </div>
-    <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-zinc-800/60">
-      <span class="text-[11px] font-mono text-zinc-500 truncate max-w-[170px]">
+    <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-zinc-800/80">
+      <span class="text-[11px] font-mono text-zinc-500 truncate max-w-[180px]">
         ${item.brewPackage || (item.type === 'tweak' ? 'defaults write' : '')}
       </span>
-      <div class="w-4 h-4 rounded border flex items-center justify-center transition-colors ${
+      <div class="card-checkbox w-4 h-4 rounded border flex items-center justify-center transition-colors ${
         isSelected
-          ? 'bg-indigo-600 border-indigo-500 text-white'
-          : 'border-zinc-700 group-hover:border-zinc-600'
+          ? 'bg-zinc-100 border-zinc-100 text-zinc-950'
+          : 'border-zinc-700 group-hover:border-zinc-500'
       }">
         <svg class="w-3 h-3 ${isSelected ? 'block' : 'hidden'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -179,25 +179,25 @@ function toggleItem(itemId) {
     const isSelected = appState.selected.has(itemId);
     if (isSelected) {
       card.className = card.className
-        .replace('bg-zinc-900/40 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-800/30', '')
-        .trim() + ' bg-zinc-800/80 border-indigo-500/80 shadow-sm shadow-indigo-500/10';
+        .replace('bg-zinc-900/40 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850/50', '')
+        .trim() + ' bg-zinc-850 border-zinc-400 shadow-sm shadow-black/40';
     } else {
       card.className = card.className
-        .replace('bg-zinc-800/80 border-indigo-500/80 shadow-sm shadow-indigo-500/10', '')
-        .trim() + ' bg-zinc-900/40 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-800/30';
+        .replace('bg-zinc-850 border-zinc-400 shadow-sm shadow-black/40', '')
+        .trim() + ' bg-zinc-900/40 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850/50';
     }
 
-    const checkmark = card.querySelector('svg');
-    const checkbox = checkmark ? checkmark.parentElement : null;
+    const checkbox = card.querySelector('.card-checkbox');
+    const checkmark = checkbox ? checkbox.querySelector('svg') : null;
     if (checkmark && checkbox) {
       if (isSelected) {
         checkmark.classList.remove('hidden');
         checkmark.classList.add('block');
-        checkbox.className = 'w-4 h-4 rounded border flex items-center justify-center transition-colors bg-indigo-600 border-indigo-500 text-white';
+        checkbox.className = 'card-checkbox w-4 h-4 rounded border flex items-center justify-center transition-colors bg-zinc-100 border-zinc-100 text-zinc-950';
       } else {
         checkmark.classList.remove('block');
         checkmark.classList.add('hidden');
-        checkbox.className = 'w-4 h-4 rounded border flex items-center justify-center transition-colors border-zinc-700 group-hover:border-zinc-600';
+        checkbox.className = 'card-checkbox w-4 h-4 rounded border flex items-center justify-center transition-colors border-zinc-700 group-hover:border-zinc-500';
       }
     }
   }
@@ -241,7 +241,6 @@ function filterCards() {
   // Hide empty category sections
   sections.forEach(section => {
     const visibleCards = section.querySelectorAll('.item-card[style*="display: flex"]');
-    const allCards = section.querySelectorAll('.item-card');
     const hasVisible = query === '' ? true : visibleCards.length > 0;
     section.style.display = hasVisible ? 'block' : 'none';
   });
@@ -261,10 +260,10 @@ function updateActionBar() {
   if (downloadBtn) {
     if (count === 0) {
       downloadBtn.disabled = true;
-      downloadBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      downloadBtn.classList.add('opacity-40', 'cursor-not-allowed');
     } else {
       downloadBtn.disabled = false;
-      downloadBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      downloadBtn.classList.remove('opacity-40', 'cursor-not-allowed');
     }
   }
 
@@ -305,18 +304,18 @@ function renderPreviewContent() {
   if (appState.previewTab === 'brewfile') {
     codeEl.textContent = generateBrewfile(appState.selected);
     if (tabBrewfile) {
-      tabBrewfile.className = 'px-3 py-1.5 text-xs font-medium text-white border-b-2 border-indigo-500';
+      tabBrewfile.className = 'px-3 py-1.5 text-xs font-medium text-white border-b-2 border-zinc-200';
     }
     if (tabRunScript) {
-      tabRunScript.className = 'px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 border-b-2 border-transparent';
+      tabRunScript.className = 'px-3 py-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
     }
   } else {
     codeEl.textContent = generateRunScript(appState.selected);
     if (tabBrewfile) {
-      tabBrewfile.className = 'px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 border-b-2 border-transparent';
+      tabBrewfile.className = 'px-3 py-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent';
     }
     if (tabRunScript) {
-      tabRunScript.className = 'px-3 py-1.5 text-xs font-medium text-white border-b-2 border-indigo-500';
+      tabRunScript.className = 'px-3 py-1.5 text-xs font-medium text-white border-b-2 border-zinc-200';
     }
   }
 }

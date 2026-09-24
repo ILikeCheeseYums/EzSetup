@@ -66,12 +66,12 @@ function generateRunScript(selectedIds) {
     tweakCommandsSection = `
 # 3. macOS Developer Tweaks
 echo ""
-echo -e "\${CYAN}🍎 Applying macOS developer system tweaks...\${NC}"
+echo -e "\${CYAN}[*] Applying macOS developer system preferences...\${NC}"
 ${commands.join('\n')}
 
-echo -e "\${CYAN}🔄 Restarting affected system services (Finder, Dock)...\${NC}"
+echo -e "\${CYAN}[*] Restarting affected system services (Finder, Dock)...\${NC}"
 killall Finder Dock 2>/dev/null || true
-echo -e "\${GREEN}✔ macOS system preferences applied.\${NC}"
+echo -e "\${GREEN}[OK] macOS system preferences applied.\${NC}"
 `;
   }
 
@@ -92,29 +92,23 @@ RED='\\033[0;31m'
 NC='\\033[0m' # No Color
 
 echo ""
-echo -e "\${BOLD}\${CYAN}  _____      ____       _               \${NC}"
-echo -e "\${BOLD}\${CYAN} | ____|____/ ___|  ___| |_ _   _ _ __  \${NC}"
-echo -e "\${BOLD}\${CYAN} |  _| |_  /\\___ \\ / _ \\ __| | | | '_ \\ \${NC}"
-echo -e "\${BOLD}\${CYAN} | |___ / /  ___) |  __/ |_| |_| | |_) |\${NC}"
-echo -e "\${BOLD}\${CYAN} |_____/___||____/ \\___|\\__|\\__,_| .__/ \${NC}"
-echo -e "\${BOLD}\${CYAN}                                 |_|    \${NC}"
-echo -e "  \${BOLD}macOS Developer Environment Setup\${NC}"
-echo ""
+echo -e "\${BOLD}EzSetup — macOS Developer Environment Setup\${NC}"
+echo -e "-------------------------------------------------------"
 
 # 1. macOS Darwin Check
 if [[ "\$(uname)" != "Darwin" ]]; then
-  echo -e "\${RED}❌ Error: EzSetup is designed for macOS only.\${NC}"
+  echo -e "\${RED}[x] Error: EzSetup is designed for macOS only.\${NC}"
   exit 1
 fi
 
-echo -e "\${GREEN}✔ Detected macOS: \$(sw_vers -productVersion) (\$(uname -m))\${NC}"
+echo -e "\${GREEN}[OK] Detected macOS: \$(sw_vers -productVersion) (\$(uname -m))\${NC}"
 
 # 2. Check for Homebrew
 echo ""
-echo -e "\${CYAN}🔍 Checking for Homebrew...\${NC}"
+echo -e "\${CYAN}[*] Checking for Homebrew...\${NC}"
 
 if ! command -v brew >/dev/null 2>&1; then
-  echo -e "\${YELLOW}⚡ Homebrew not found. Installing Homebrew...\${NC}"
+  echo -e "\${YELLOW}[!] Homebrew not found. Installing Homebrew...\${NC}"
   /bin/bash -c "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   # Configure PATH for Apple Silicon vs Intel
@@ -129,13 +123,13 @@ if ! command -v brew >/dev/null 2>&1; then
       echo 'eval "\$(/usr/local/bin/brew shellenv)"' >> "\$HOME/.zprofile"
     fi
   fi
-  echo -e "\${GREEN}✔ Homebrew installed and PATH configured.\${NC}"
+  echo -e "\${GREEN}[OK] Homebrew installed and PATH configured.\${NC}"
 else
-  echo -e "\${GREEN}✔ Homebrew is already installed.\${NC}"
+  echo -e "\${GREEN}[OK] Homebrew is already installed.\${NC}"
 fi
 
 # Ensure brew is updated and healthy
-echo -e "\${CYAN}🔄 Updating Homebrew index...\${NC}"
+echo -e "\${CYAN}[*] Updating Homebrew index...\${NC}"
 brew update
 
 # 3. Install packages via Brewfile
@@ -144,18 +138,18 @@ BREWFILE="\$SCRIPT_DIR/Brewfile"
 
 if [[ -f "\$BREWFILE" ]]; then
   echo ""
-  echo -e "\${CYAN}🚀 Installing selected packages via Homebrew bundle...\${NC}"
+  echo -e "\${CYAN}[*] Installing selected packages via Homebrew bundle...\${NC}"
   brew bundle --file="\$BREWFILE"
-  echo -e "\${GREEN}✔ All packages installed successfully.\${NC}"
+  echo -e "\${GREEN}[OK] All packages installed successfully.\${NC}"
 else
-  echo -e "\${YELLOW}⚠️ Brewfile not found in \$SCRIPT_DIR. Skipping package installation.\${NC}"
+  echo -e "\${YELLOW}[!] Brewfile not found in \$SCRIPT_DIR. Skipping package installation.\${NC}"
 fi
 ${tweakCommandsSection}
 echo ""
 echo -e "\${BOLD}\${GREEN}=======================================================\${NC}"
-echo -e "\${BOLD}\${GREEN}  🎉 EzSetup installation complete! Enjoy your Mac!    \${NC}"
+echo -e "\${BOLD}\${GREEN}  EzSetup installation complete. All tools ready.      \${NC}"
 echo -e "\${BOLD}\${GREEN}=======================================================\${NC}"
-echo -e "Tip: Restart your terminal window to pick up all changes."
+echo -e "Tip: Restart your terminal window to reload your shell environment."
 echo ""
 `;
 }

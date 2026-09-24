@@ -1,13 +1,13 @@
 // EzSetup Catalog Data (Plain Objects & Arrays - No Classes)
 
 const CATEGORIES = [
-  { id: 'editors', name: 'Code Editors & IDEs', icon: '📝' },
-  { id: 'languages', name: 'Languages & Runtimes', icon: '☕' },
-  { id: 'terminals', name: 'Terminals & Shell', icon: '📟' },
-  { id: 'cli', name: 'Modern CLI Utils', icon: '🛠️' },
-  { id: 'containers', name: 'Containers & DBs', icon: '🐳' },
-  { id: 'apps', name: 'Productivity & Browsers', icon: '🌐' },
-  { id: 'tweaks', name: 'macOS Dev Defaults', icon: '🍎' }
+  { id: 'editors', name: 'Code Editors & IDEs', iconKey: 'category-editors' },
+  { id: 'languages', name: 'Languages & Runtimes', iconKey: 'category-languages' },
+  { id: 'terminals', name: 'Terminals & Shell', iconKey: 'category-terminals' },
+  { id: 'cli', name: 'Modern CLI Utils', iconKey: 'category-cli' },
+  { id: 'containers', name: 'Containers & Databases', iconKey: 'category-containers' },
+  { id: 'apps', name: 'Productivity & Browsers', iconKey: 'category-apps' },
+  { id: 'tweaks', name: 'macOS Developer Defaults', iconKey: 'category-tweaks' }
 ];
 
 const PRESETS = [
