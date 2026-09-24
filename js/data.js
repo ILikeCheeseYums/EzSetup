@@ -5,6 +5,7 @@ const CATEGORIES = [
   { id: 'languages', name: 'Languages & Runtimes', shortName: 'Languages', iconKey: 'category-languages' },
   { id: 'terminals', name: 'Terminals & Shell', shortName: 'Terminals', iconKey: 'category-terminals' },
   { id: 'cli', name: 'Modern CLI Utils', shortName: 'CLI', iconKey: 'category-cli' },
+  { id: 'ai', name: 'AI Agents & LLMs', shortName: 'AI Agents', iconKey: 'category-ai' },
   { id: 'containers', name: 'Containers & Databases', shortName: 'Containers', iconKey: 'category-containers' },
   { id: 'apps', name: 'Productivity & Apps', shortName: 'Apps', iconKey: 'category-apps' },
   { id: 'tweaks', name: 'macOS Defaults', shortName: 'macOS', iconKey: 'category-tweaks' }
@@ -30,7 +31,7 @@ const ITEMS = [
     id: 'cursor',
     name: 'Cursor',
     primaryCategory: 'editors',
-    categories: ['editors', 'apps'],
+    categories: ['editors', 'apps', 'ai'],
     desc: 'AI-first code editor fork of VS Code with smart completions & agent mode',
     type: 'cask',
     brewPackage: 'cursor'
@@ -142,7 +143,7 @@ const ITEMS = [
     id: 'warp',
     name: 'Warp Terminal',
     primaryCategory: 'terminals',
-    categories: ['terminals', 'apps'],
+    categories: ['terminals', 'apps', 'ai'],
     desc: 'Modern Rust-based terminal with IDE-style block commands and AI assist',
     type: 'cask',
     brewPackage: 'warp'
@@ -238,6 +239,53 @@ const ITEMS = [
     desc: 'Aesthetic resource monitor showing CPU, memory, disk, and process stats',
     type: 'brew',
     brewPackage: 'btop'
+  },
+
+  // AI Agents & LLMs
+  {
+    id: 'ollama',
+    name: 'Ollama',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: 'Run Llama 3, DeepSeek, and Mistral models locally with Apple Silicon Metal acceleration',
+    type: 'brew',
+    brewPackage: 'ollama'
+  },
+  {
+    id: 'aider',
+    name: 'Aider',
+    primaryCategory: 'ai',
+    categories: ['ai', 'cli'],
+    desc: 'AI pair programming terminal agent that coordinates git commits and multi-file edits',
+    type: 'brew',
+    brewPackage: 'aider'
+  },
+  {
+    id: 'lm-studio',
+    name: 'LM Studio',
+    primaryCategory: 'ai',
+    categories: ['ai', 'apps'],
+    desc: 'Discover, download, and experiment with local LLMs on your Mac via a native GUI',
+    type: 'cask',
+    brewPackage: 'lm-studio'
+  },
+  {
+    id: 'jan',
+    name: 'Jan',
+    primaryCategory: 'ai',
+    categories: ['ai', 'apps'],
+    desc: 'Open-source desktop AI assistant and local LLM runner working 100% offline',
+    type: 'cask',
+    brewPackage: 'jan'
+  },
+  {
+    id: 'chatgpt',
+    name: 'ChatGPT Desktop',
+    primaryCategory: 'ai',
+    categories: ['ai', 'apps'],
+    desc: 'Official OpenAI ChatGPT desktop application with macOS system shortcut integration',
+    type: 'cask',
+    brewPackage: 'chatgpt'
   },
 
   // Containers & Databases

@@ -274,6 +274,41 @@ const ICONS = {
     <line x1="17" y1="16" x2="23" y2="16"/>
   </svg>`,
 
+  'category-ai': `<svg viewBox="0 0 24 24" class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>`,
+
+  'ollama': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8"/>
+    <circle cx="9" cy="11" r="1.2" fill="currentColor"/>
+    <circle cx="15" cy="11" r="1.2" fill="currentColor"/>
+    <path d="M9 15c1 1 5 1 6 0"/>
+    <path d="M8 4l2 3M16 4l-2 3"/>
+  </svg>`,
+
+  'aider': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="4 17 10 11 4 5"/>
+    <line x1="12" y1="19" x2="20" y2="19"/>
+    <path d="M14 6l3 3 4-4"/>
+  </svg>`,
+
+  'lm-studio': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>`,
+
+  'jan': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="6" width="16" height="12" rx="3"/>
+    <circle cx="9" cy="12" r="1.5" fill="currentColor"/>
+    <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
+    <path d="M12 2v4M2 12h2M20 12h2"/>
+  </svg>`,
+
+  'chatgpt': `<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3a4 4 0 00-3.6 2.3 4 4 0 00-4.1 2.2 4 4 0 00.5 4.7 4 4 0 00-.5 4.7 4 4 0 004.1 2.2 4 4 0 003.6 2.3 4 4 0 003.6-2.3 4 4 0 004.1-2.2 4 4 0 00-.5-4.7 4 4 0 00.5-4.7 4 4 0 00-4.1-2.2A4 4 0 0012 3z"/>
+  </svg>`,
+
   // Default fallback icon
   'default': `<svg viewBox="0 0 24 24" class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="4" y="4" width="16" height="16" rx="2"/>
